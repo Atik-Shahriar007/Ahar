@@ -21,27 +21,27 @@ Food guidance that fits your meals, budget and routine.
 00:26–00:48 | A PHOTO IS THE START
 Picture: My plate → Review this lunch → correct your personal portion → save. Show the supplied shared-lunch photo; never count the entire spread as one person’s meal.
 Bangla VO:
-খাবারের ছবি দিয়ে শুরু। কী খাবার আছে, পুষ্টির আনুমানিক হিসাব দেখা যাবে। কিন্তু ছবি থেকে তেল বা পরিমাণ নিশ্চিত জানা যায় না। তাই ব্যবহারকারী পরিমাণ ঠিক করবেন। তারপর আহারাই বলবে, আজ সহজে কী বদলানো যায়।
+খাবারের ছবি দিয়ে কথা শুরু। কিন্তু এই প্রোটোটাইপে ছবির ফল নমুনা হিসেবে দেখানো—ছবি বিশ্লেষণ চলছে না। তেল বা পরিমাণ ছবিতে নিশ্চিত জানা যায় না, তাই ব্যবহারকারীই নিজের অংশ ঠিক করবেন।
 English captions:
-A photo starts the conversation. Portions need confirmation.
-Then comes one practical change.
+A photo can start the conversation. This prototype's photo result is scripted.
+Portions need confirmation before any future estimate.
 
 00:48–01:10 | SHOW PERSONALIZATION, NOT JUST A CLAIM
 Picture: Nabil's home recommendation; switch to Rahim in My profile; show his home recommendation. Use a clean hard cut between the two.
 Bangla VO:
-নাবিলের সাম্প্রতিক খাবারে বারবার কোমল পানীয় আছে। তার জন্য আজ পানির পরামর্শ। রহিমের দিন কাটে শারীরিক পরিশ্রমে। তার খাবার কমানো নয়—বাজেটের মধ্যে পেটভরা খাবারের বিকল্প। একই প্ল্যাটফর্ম, আলাদা প্রয়োজন। এই নমুনায় নিয়মভিত্তিক পরামর্শ দেখি; যাচাইয়ের পরেই এআই যোগ হবে।
+নাবিলের জন্য পানির একটি নমুনা পরামর্শ, রহিমের জন্য বাজেটের মধ্যে খাবারের বিকল্প—এগুলো কল্পিত প্রোফাইলের স্ক্রিপ্ট করা উদাহরণ। নিয়মভিত্তিক হিসাব বাজেট সামলায়। চাইলে এআই কেবল আগে যাচাই করা বাজারের বিকল্পগুলোকে খরচ, ঘরের মজুতের সম্মিলিত হিসাব বা খাবারের ধরন অনুযায়ী সাজায়; পছন্দটি ব্যবহারকারীই নেন।
 English captions:
-For Nabil: change a repeated drink habit.
-For Rahim: preserve a filling lunch within his budget.
-The prototype shows contextual rules; AI comes after validation.
+Scripted examples for fictional profiles—not measured personalization.
+Rules handle the arithmetic; optional AI ranks only swaps from a fixed demo list.
+The user reviews and chooses. No health or nutrition equivalence is claimed.
 
 01:10–01:29 | FROM ADVICE TO ACTION
 Picture: My bazar → Review this bazar photo → Use demo quantities & prices → Confirm & save → Food plan. Show matched pantry items reducing the sample amount to buy, then cut to Recipes.
 Bangla VO:
-বাজারের ছবি থেকে জিনিসের তালিকা। পরিমাণ আর দাম ঠিক করে রাখলে, ঘরে কী আছে মনে থাকবে। পরিকল্পনায় ঘরের চাল-ডাল বাদ দিয়ে নমুনা তালিকার বাকি কেনাকাটা দেখায়। সেই উপকরণে রেসিপি—নিজের জন্য, চাইলে পরিবারের জন্যও। দামগুলো নমুনা।
+বাজারের ছবির পর নমুনা তালিকা যাচাই করে পরিমাণ ও দাম নিশ্চিত করুন। পরিকল্পনায় ঘরের চাল-ডালের মজুত বাদ দিয়ে বাকি নমুনা কেনাকাটা দেখায়। এবার ডিমের বদলে মসুর ডাল বেছে নিলে তালিকা, মজুত ও বাজেটের হিসাব বদলে যায়। এটি শুধু বাজারের বিকল্প—রেসিপি বা পুষ্টির সমতুল্যতা নয়; দামগুলো নমুনা।
 English captions:
-A bazar photo becomes a reviewed pantry record.
-Confirmed stock reduces the sample shopping list—not your meal log.
+A user reviews a sample pantry list; the photo is not analyzed.
+Stock and a user-selected swap update the illustrative shopping total.
 
 01:29–01:47 | HONEST FEASIBILITY AND MEASUREMENT
 Picture: progress screen; small caption “Proposed pilot: 30 adults · 6 weeks”. Do not present sample progress as measured impact.
@@ -68,6 +68,6 @@ Small text: Interactive concept prototype
 RECORDING NOTES
 Record at 1920×1080 desktop or a clean 390×844 phone viewport; confirm required aspect ratio in the actual competition rules. Crop browser chrome, not uncertainty or prototype labels. Use natural sound softly under the opening; keep speech clearly audible.
 Do not film an arbitrary uploaded image and imply recognition. Use the supplied lunch photo and keep the demo labels visible.
-Do not say AI is live, that the app diagnoses disease, that prices are current, or that the proposed pilot has already happened.
+Only demonstrate the optional AI ranking when the server is configured. Say it ranks a small fixed sample list; rules handle quantities and costs. Do not imply meal photos are analyzed, the swaps were professionally validated, the app diagnoses disease, prices are current, or the proposed pilot has happened.
 Keep captions to two lines. Allow time to see the changed advice; cut extra recipe footage before cutting the personalization comparison.
 Keep a backup screen recording and a rehearsed offline path. External fonts fall back to system fonts when offline.
