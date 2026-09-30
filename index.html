@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#482d3d"><meta name="description" content="AharAI — everyday food guidance, made for your life in Bangladesh. A concept by IUT_b(a)s.">
+  <title>AharAI · ভালো থাকুন, নিজের মতো।</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23482d3d'/%3E%3Cpath d='M16 46 30 15h5l14 31h-8l-3-8H26l-3 8Zm13-15h6l-3-9Z' fill='%23fff8ed'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <aside class="sidebar">
+    <a href="#today" class="brand" aria-label="AharAI home">Ahar<span class="ai-mark">AI</span><span>আহারাই</span></a>
+    <p class="brand-note">ভালো থাকুন, নিজের মতো।</p>
+    <nav id="navigation" aria-label="Main navigation"></nav>
+    <div class="side-bottom"><p>Good food.<br>Your kind of life.</p><span>A concept by IUT_b(a)s</span><small>Interactive prototype · sample data</small></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span class="edition">EVERYDAY WELL-BEING, IN BANGLADESH</span><a class="mobile-brand" href="#today">Ahar<span class="ai-mark">AI</span></a><div class="top-actions"><button class="quiet" id="language">বাংলা</button><button class="avatar" id="profile-button" aria-label="Open your profile">N</button></div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer class="footer"><span>Small changes. Familiar food.</span><span>AharAI / IUT_b(a)s</span></footer>
+  </div>
+  <dialog id="modal"><div id="modal-content"></div><button class="close-modal" aria-label="Close dialog">×</button></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="pantry.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
