@@ -16,7 +16,7 @@ The strongest parts for AharAI are pantry-aware meal planning, budget-sensitive 
 
 Keep the established **AharAI** name and Bangladesh-first framing. The attached discussion’s NutriShield name, all-in-one product promise, calorie targets, weight-gain/loss goals, nutrition-gap radar, and broad health analytics would dilute the current concept and create unsupported health claims. Do not add disease-specific advice, child nutrition targets, clinical family profiles, or allergy guarantees without qualified review and robust data. Packaged-food OCR, live food-photo recognition, expiry notifications, accounts, reminders, monthly reports, and a general chatbot are later-stage ideas; none is required to make this prototype clearer or more credible.
 
-The current source is a static browser prototype. Its photo recognition, meal estimates, sample history, recommendations, and prices are scripted or illustrative. We should present this honestly. A useful, deterministic planner can demonstrate the **decision loop** without pretending that a trained AI model or live market data already exists.
+The interface is primarily a browser prototype, now paired with an optional same-origin Node endpoint. Photo recognition, meal estimates, sample history, profile suggestions, and prices remain scripted or illustrative; the only live model function is an explicitly requested rank of fixed sample swap IDs against a selected planning priority. This demonstrates a bounded AI decision point, not a professionally reviewed catalogue, validated personalization system, or live market service.
 
 ## Staged plan
 
@@ -28,15 +28,19 @@ Import the supplied prototype into the empty `Ahar` repository, keep the existin
 
 **First implementation:** when a user has explicitly confirmed a pantry list, match only clearly recognizable ingredients with compatible units against the sample shopping basket. Subtract available quantities, recalculate the estimated amount still to buy and the remaining sample budget, and explain which constraints changed the plan. If a name or unit is unclear, do not silently count it. Mark the result as an illustrative planning calculation, and remind users to confirm that recorded food is still available. Do not mark purchased food as eaten or decrement pantry stock automatically.
 
-This creates a visible, testable journey across three existing parts of AharAI: bazar review → pantry → a lower-cost food plan. It is the smallest feature that turns the current feature list into a connected product story. It does not claim that the system uses AI; it is an explainable rules-based prototype that gives us a baseline for a later AI comparison.
+This created a visible, testable journey across three existing parts of AharAI: bazar review → pantry → a lower-cost food plan. At that stage, the calculation was intentionally rules-based and gave us a baseline for later comparison.
+
+### Stage 1b — Add sample swaps and a constrained AI ranker (implemented)
+
+Users can choose from a small illustrative swap catalogue and see quantities, pantry coverage, and budget recalculate locally. An optional server-side model ranks only approved option IDs against a user-selected, non-sensitive planning priority (sample cost, aggregate confirmed-stock use, or a curated meal style). Arithmetic remains deterministic; a local fallback always works; nothing is applied without a user click. No profile, photos, or raw pantry list is sent. This is a working prototype feature—not evidence that AI improves outcomes. Evaluate it against the fallback before expanding AI's role.
 
 ### Stage 2 — Validate the problem and replace invented assumptions
 
 Before claiming that users need this, interview a small, diverse group of consenting adults across student, physically demanding work, and household-planning contexts. Ask about actual meal decisions, budget trade-offs, pantry practices, Bangla usability, and why a suggested change would be rejected. Record what was said without inventing participants or results. In parallel, identify a licensed Bangladesh food-composition source and a dated, location-specific price source; have a qualified nutrition professional review any health-related suggestions. Do not treat the current sample values as survey or affordability evidence.
 
-### Stage 3 — Add bounded, meaningful AI only where it earns its place
+### Stage 3 — Evaluate bounded AI and expand only where it earns its place
 
-After the data and consent path are settled, test AI for varied meal-text interpretation or ranking feasible suggestions from a small reviewed local catalog. Keep arithmetic, budget ceilings, exclusions, and ingredient/unit matching deterministic and inspectable. Provide an explanation tied to visible inputs (budget, routine, confirmed pantry, and user feedback). Ask users to correct uncertain interpretations. Compare AI-assisted ranking with the rules-only baseline and report error and suitability measures. Do not expose model credentials in the static frontend or present generated output as medical advice.
+First compare the implemented constrained ranker with its deterministic baseline using the same approved options, priorities, and sample inputs. Report when rankings differ and whether users find them more useful; do not claim better outcomes from one test call. Only after validated local data, a consent plan, and user testing should the team consider meal-text interpretation. Keep arithmetic, budget ceilings, exclusions, and ingredient/unit matching deterministic and inspectable. Do not expose credentials in the static frontend or present generated output as medical advice.
 
 ### Stage 4 — Make the pitch evidence-led
 
@@ -47,7 +51,7 @@ Use a short demo with one clear contrast: the same familiar food decision for tw
 - **Originality:** show the connected local decision loop (routine + budget + existing food), not another isolated calorie scanner. Treat differentiation as a hypothesis until competitors and users are researched.
 - **Feasibility:** keep the first scope small, offline-friendly, explainable, and explicit about sample data and missing integrations.
 - **Social impact:** design for practical choices across different budgets and work patterns, without body shaming or assuming that every household has the same needs.
-- **Meaningful AI:** distinguish the current rules-based demonstration from future AI. Explain what AI will do, why deterministic safeguards remain, and how performance will be compared with a non-AI baseline.
+- **Meaningful AI:** describe the optional constrained ranker accurately, distinguish it from still-scripted photo/meal flows, explain why arithmetic stays deterministic, and compare its choices with the rules-only baseline before claiming added value.
 - **Trust:** no diagnosis, promised weight change, false precision from photos, unverified current prices, or fabricated validation evidence.
 
 ## Sources

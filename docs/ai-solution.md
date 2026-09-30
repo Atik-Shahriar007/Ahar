@@ -16,6 +16,7 @@ Input: confirmed foods and portions; voluntary age, height, weight and relevant 
 Analysis: detect repeated meal patterns, retrieve local food records, identify useful substitutions and rank feasible options.
 Output: a meal suggestion and a short reason explaining which constraints shaped it.
 Feedback: accept, reject, correct a portion, change the budget, or say an ingredient is unavailable. The intended system would use this feedback to improve later ranking.
+Current implemented AI boundary: when the user explicitly asks, the optional local Node service ranks IDs from a small fixed demo swap catalogue using a chosen planning priority, sample budget, demo meal-style tags, and aggregate candidate totals after pantry adjustment. The model does not receive a profile, raw pantry list, photo, or health goal, and it cannot create or apply an ingredient. The swap catalogue has not received professional nutrition review.
 
 The key film moment: show Nabil and Rahim receiving different advice for familiar lunches. Explain the inputs that changed the recommendation. A generic chatbot response beside a calorie counter is not sufficient evidence of AI impact.
 
@@ -32,10 +33,10 @@ No diagnosis, promised weight loss or treatment claims. No universal calorie def
 An eventual clinical-condition flow must use professional review and a defined scope. Pregnancy, children, suspected eating disorders and complex disease management are outside the first personalized adult pilot. Family shopping does not assign children adult portions or adult calorie targets.
 Allergies and exclusions must be hard constraints in a real planner; the prototype does not implement an allergy-safe recommendation engine.
 Do not monetize by recommending food that pays the highest commission. Do not sell health profiles.
-Obtain explicit consent before storing photos or health-related details; allow deletion. The current prototype has no backend and does not upload photographs.
+Obtain explicit consent before storing photos or health-related details; allow deletion. The optional ranker endpoint receives only the minimal selected swap context described above. It does not upload photographs or health-profile fields. Pantry entries remain in the browser.
 
 6. WHAT EXISTS TODAY
-Clickable static interface, illustrated sample meals, scripted estimate animation, editable illustrative portion values, three personas, personal profile form, budget arithmetic, family/solo modes, recipes, sample habit history and English/Bangla presentation. All model responses are scripted; none is evidence of working recognition or personalized medical guidance.
+Clickable interface, illustrated sample meals, scripted estimate animation, editable illustrative portion values, three personas, personal profile form, budget arithmetic, family/solo modes, recipes, sample habit history, English/Bangla presentation, pantry-aware sample basket, user-selected ingredient swaps, and a constrained optional model ranker. Meal and photo responses remain scripted; none is evidence of working recognition or personalized medical guidance.
 Uploaded photos are local previews only. The user must explicitly choose the sample result. State resets on reload. No login, real nutrition database, live bazar prices, real voice recognition or health outcomes.
 
 7. FIRST PILOT: A TESTABLE PROPOSAL

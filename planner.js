@@ -11,6 +11,7 @@
   function foodKey(name) {
     const text = String(name || '').toLowerCase();
     if (/\b(rice)\b|চাল/.test(text)) return 'rice';
+    if (/\bflour\b|আটা/.test(text)) return 'flour';
     if (/masoor|lentil|\bdal\b|মসুর|ডাল/.test(text)) return 'lentils';
     if (/\beggs?\b|ডিম/.test(text)) return 'eggs';
     if (/vegetable|greens|leafy|সবজি|শাক/.test(text)) return 'vegetables';
@@ -40,8 +41,7 @@
     return null;
   }
 
-  function pantryAdjustedBasket() {
-    const baseItems = originalBasket();
+  function applyPantry(baseItems) {
     let saved;
     try {
       saved = savedPantry();
@@ -72,6 +72,11 @@
     });
   }
 
+  function pantryAdjustedBasket() {
+    return applyPantry(originalBasket());
+  }
+
+  window.AHAR_PLAN_MATH = { applyPantry };
   basket = pantryAdjustedBasket;
 
   planView = function () {
@@ -95,6 +100,8 @@
     const note = `<aside class="plan-insight" aria-label="How this sample plan is adjusted"><span class="eyebrow">HOW THIS SAMPLE PLAN ADAPTS</span><p class="plan-constraints">${constraints}</p>${details}<p class="help">Transparent demo rule: only recognizable food names and compatible units are matched. Unclear items are ignored. Prices are illustrative, and this does not track expiry or consumption.</p></aside>`;
     const marker = '</div><div class="two-col"><section><form class="surface" id="plan-form">';
     if (html.includes(marker)) html = html.replace(marker, `</div>${note}<div class="two-col"><section><form class="surface" id="plan-form">`);
+    const swapControls = window.AHAR_SWAP_CONTROLS ? window.AHAR_SWAP_CONTROLS() : '';
+    if (swapControls) html = html.replace('</aside><div class="two-col">', `</aside>${swapControls}<div class="two-col">`);
     return html;
   };
 

@@ -1,12 +1,12 @@
 # AharAI · IUT_b(a)s
 
-Open `index.html` directly or run a local server from the repository root:
+For the full demo and optional model endpoint, run this from the repository root:
 
 ```bash
-python3 -m http.server 5174 --bind 127.0.0.1
+node server.mjs
 ```
 
-Then open `http://127.0.0.1:5174`. No installation or build is required. Google Fonts are optional and fall back to system fonts offline.
+Then open `http://127.0.0.1:5174`. No package install or build is required. The server binds to localhost by default. Model ranking is enabled only if `OPENAI_API_KEY` and `OPENAI_API_BASE` are configured in the server environment. Never put credentials in client code or the repository. For a static preview, run `python3 -m http.server 5174 --bind 127.0.0.1`; the AI button will use a clearly labeled local cost/budget ranking instead. Google Fonts are optional.
 
 ## Three-minute walkthrough
 
@@ -14,10 +14,11 @@ Then open `http://127.0.0.1:5174`. No installation or build is required. Google 
 2. **My plate:** choose “Review this lunch,” adjust the example portion, and save. The shared photograph is not counted as one person's whole meal.
 3. **My profile:** select Rahim. Return to Today to show how the fictional profile changes the scripted suggestion.
 4. **My bazar:** select “Review this bazar photo,” then “Use demo quantities & prices.” Confirm and save the sample pantry. Demo values are invented, not extracted from the photo or current market data.
-5. **Food plan:** build a solo plan. The plan now subtracts clearly matched, compatible-unit items from the confirmed pantry and displays a note explaining which sample ingredients it can reuse. For a simple demo, use the default sample quantities. The displayed remaining basket total is illustrative, not a verified price.
-6. **My family:** build the default sample plan for three adult-equivalent people over three days. The family basket is a demonstration and does not assign children's portions or nutrition targets.
-7. **Recipes:** open a dish and save it as a dinner idea. Pantry ingredient matches may influence recipe ordering.
-8. **My progress:** sample history only. The **বাংলা** control switches the principal interface into Bengali.
+5. **Food plan:** build a solo plan. Confirmed pantry items reduce the sample shopping basket only when names and units match. Try a swap, such as **Eggs → Masoor dal**, and confirm the list total changes. The sample meal description does not automatically change; review it before cooking. Prices are illustrative.
+6. In the swap panel, choose a simple priority such as **Keep the sample cost low**, **Use confirmed pantry stock**, or a meal style; optionally choose **Rank alternatives with AI**. With the local server and model credentials configured, AharAI requests an order of IDs from its fixed sample catalogue using that goal, demo meal-style tags, and locally calculated aggregate costs/stock coverage. If the service is missing, it shows the deterministic rules-based order. The model never selects a swap for you; you must click **Use this**.
+7. **My family:** build the default sample plan for three adult-equivalent people over three days. The family basket is a demonstration and does not assign children's portions or nutrition targets.
+8. **Recipes:** open a dish and save it as a dinner idea. Pantry ingredient matches may influence recipe ordering.
+9. **My progress:** sample history only. The **বাংলা** control switches the principal interface into Bengali.
 
 ## Demo shortcuts
 
@@ -36,12 +37,16 @@ The supplied bazar photo starts a review flow with scripted item-name suggestion
 
 The Food plan enhancement subtracts only pantry entries with a clear sample-food name match and compatible units. It does not infer that an item is fresh, unexpired, or still present. It never treats purchases as eaten or silently changes pantry quantities. Unknown names or incompatible units are ignored.
 
+Ingredient swaps are shopping-list alternatives from a short fixed catalogue. Compatible pantry stock is applied to the replacement, duplicate lines are combined, and the totals are recalculated. The swap does not claim nutrition equivalence, allergy safety, religious suitability, medical suitability, or recipe adaptation.
+
+The optional AI request is made only when a user presses the ranking button. It contains the selected catalogue ingredient ID, the selected non-sensitive planning priority, the sample budget, locally calculated costs after pantry adjustment, and only an aggregate pantry-covered amount for each candidate. It does **not** include profile fields, body measurements, raw pantry rows, a name, or a photo. The server prompts the model to return only approved IDs; the interface validates them again. A local deterministic ranking works without AI.
+
 ## What is real in this prototype
 
-Navigation, language switching, forms, simple profile-based sample suggestions, portion arithmetic, illustrative basket calculations, pantry confirmation/storage, compatible-unit pantry deductions, recipe dialogs, dinner selection, and a shopping-list text download work in the browser. Nutrition values, meal history, recipes' costs, bazar prices, and sample profiles are not validated real-world data. There is no backend, trained model, live recognition, live price feed, or clinical decision system. The planner is transparent demo logic, not an AI model.
+Navigation, language switching, forms, sample suggestions, portion arithmetic, pantry confirmation/storage, compatible-unit deductions, user-selected swaps, basket recalculation, recipe dialogs, and a shopping-list text download work in the browser. The optional Node server can make one structured AI ranking request; it does not generate ingredients or advice. Nutrition values, meal history, recipe costs, bazar prices, and sample profiles are not validated real-world data. There is no live recognition, live price feed, or clinical decision system.
 
 Do not present the sample habit chart or the pantry-adjusted demo arithmetic as measured impact, current prices, medical guidance, or proof of user savings.
 
 ## Submission notes
 
-Read `video-pitch.md` for the existing timed pitch and shots; `problem-statement.md` and `ai-solution.md` for concept copy; `judges-qa.md` for rehearsal; `sources.md` for the original source ledger; and `competition-roadmap-2026.md` for the current evidence-led improvement plan. The team's final video still needs its narration and screen recording. Confirm current competition requirements in the official portal.
+Read `video-pitch.md` for the timed pitch and shots; `problem-statement.md` and `ai-solution.md` for concept copy; `judges-qa.md` for rehearsal; `sources.md` for the original source ledger; `competition-roadmap-2026.md` for competition research; and `implementation-roadmap.md` for staged feature work and release gates. The team's final video still needs narration and screen recording. Confirm current competition requirements in the official portal.
