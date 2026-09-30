@@ -25,7 +25,7 @@ Not precisely. Hidden oil and portion size matter. We show a range, ask for corr
 That needs field testing. The demo offers Bangla, large controls and a non-gym framing. A proposed voice flow and lighter interface need testing on actual devices, in noise and with data costs. We do not claim universal access from a desktop demo.
 
 **What happens when an option costs too much?**
-The sample plan shows the estimated total and flags whether it fits the sample budget. Its alternatives are only shopping-list examples—not nutritionally equivalent or guaranteed available. Real affordability and nutritional adequacy need verified local data and professional review.
+The sample plan shows the estimated total and flags whether it fits the sample budget. **All items / To buy / From pantry** filters show different ingredient rows but do not change meal or day totals. Alternatives are only shopping-list examples—not nutritionally equivalent or guaranteed available. Real affordability and nutritional adequacy need verified local data and professional review.
 
 **Is Rahim’s demo pantry real, and does the plan save anything?**
 No. **Show Rahim’s workday** is a fictional one-tap scenario with explicitly labelled, unsaved sample rice and dal. In the regular flow, the user checks which previously saved pantry items are still available before any deduction. Selecting the plan keeps a confirmation in the current demo session only; it does not save a health record or send information to a model.

@@ -14,6 +14,7 @@
   let applied = false;
   let demo = false;
   let openedFor = null;
+  let breakdownFilter = 'all';
   const selectedStock = new Set();
 
   const text = (en, bn) => state.bn ? bn : en;
@@ -54,7 +55,28 @@
   }
 
   function renderMeals(result) {
-    return result.meals.map((meal) => `<article class="guided-meal"><div class="guided-meal-head"><div><span class="eyebrow">${state.bn ? meal.bn : meal.en}</span><h3>${state.bn ? meal.dishBn : meal.dish}</h3></div><b>৳${meal.cost}</b></div><div class="guided-ingredients">${meal.items.map((item) => `<div class="guided-ingredient"><span>${state.bn ? item.bn : item.en}<small>${formatQty(item.qty)} ${safe(item.unit)}${item.swapped ? ` · ${text('your chosen swap','আপনার বেছে নেওয়া বদল')}` : ''}</small></span><small>${item.coveredQty > 0 ? `${formatQty(item.coveredQty)} ${safe(item.unit)} ${text('from home','ঘর থেকে')} · ` : ''}৳${item.purchaseCost} ${text('to buy','কিনতে')}</small></div>`).join('')}</div><p class="guided-meal-cost">${text('Illustrative amount to buy for this meal','এই খাবারের নমুনা কেনাকাটা')}</p></article>`).join('');
+    const filters = [
+      ['all', text('All items', 'সব উপকরণ')],
+      ['buy', text('To buy', 'কিনতে হবে')],
+      ['pantry', text('From pantry', 'ঘরে আছে')],
+    ];
+    const status = breakdownFilter === 'buy'
+      ? text('Showing ingredients still to buy · meal and day totals unchanged.', 'কিনতে হবে এমন উপকরণ দেখানো হচ্ছে · খাবার ও দিনের মোট অপরিবর্তিত।')
+      : breakdownFilter === 'pantry'
+        ? text('Showing checked pantry matches · meal and day totals unchanged.', 'টিক দেওয়া ঘরের উপকরণ দেখানো হচ্ছে · খাবার ও দিনের মোট অপরিবর্তিত।')
+        : text('Filter ingredient rows; meal and day totals stay the same.', 'উপকরণের তালিকা ছাঁকুন; খাবার ও দিনের মোট অপরিবর্তিত থাকবে।');
+    const toolbar = `<div class="guided-breakdown-toolbar"><div class="guided-filter-chips" role="group" aria-label="${text('Filter ingredient rows', 'উপকরণের তালিকা ছাঁকুন')}">${filters.map(([id, label]) => `<button type="button" class="guided-filter-chip ${breakdownFilter === id ? 'active' : ''}" data-guided-filter="${id}" aria-pressed="${breakdownFilter === id}">${label}</button>`).join('')}</div><p class="help guided-filter-note" aria-live="polite">${status}</p></div>`;
+    const meals = result.meals.map((meal) => {
+      const visibleItems = meal.items.filter((item) => breakdownFilter === 'all'
+        || (breakdownFilter === 'buy' && item.toBuyQty > 0)
+        || (breakdownFilter === 'pantry' && item.coveredQty > 0));
+      const rows = visibleItems.map((item) => `<div class="guided-ingredient" data-guided-key="${item.key}"><span>${state.bn ? item.bn : item.en}<small>${formatQty(item.qty)} ${safe(item.unit)}${item.swapped ? ` · ${text('your chosen swap', 'আপনার বেছে নেওয়া বদল')}` : ''}</small></span><small>${item.coveredQty > 0 ? `${formatQty(item.coveredQty)} ${safe(item.unit)} ${text('from home', 'ঘর থেকে')} · ` : ''}৳${item.purchaseCost} ${text('to buy', 'কিনতে')}</small></div>`).join('');
+      const empty = breakdownFilter === 'buy'
+        ? text('Nothing to buy for this meal.', 'এই খাবারের জন্য কিছু কিনতে হবে না।')
+        : text('No checked pantry items used in this meal.', 'এই খাবারে টিক দেওয়া ঘরের উপকরণ নেই।');
+      return `<article class="guided-meal"><div class="guided-meal-head"><div><span class="eyebrow">${state.bn ? meal.bn : meal.en}</span><h3>${state.bn ? meal.dishBn : meal.dish}</h3></div><b>৳${meal.cost}</b></div><div class="guided-ingredients">${rows || `<p class="guided-filter-empty">${empty}</p>`}</div><p class="guided-meal-cost">${text('Illustrative amount to buy for this meal', 'এই খাবারের নমুনা কেনাকাটা')}</p></article>`;
+    }).join('');
+    return `${toolbar}${meals}`;
   }
 
   function renderPanel() {
@@ -64,6 +86,7 @@
       budget = Number(profile.budget) || 0;
       context = 'workday';
       swap = false;
+      breakdownFilter = 'all';
       applied = false;
       selectedStock.clear();
     }
@@ -96,6 +119,16 @@
   };
 
   document.addEventListener('click', (event) => {
+    const filterButton = event.target.closest('[data-guided-filter]');
+    if (filterButton) {
+      const nextFilter = filterButton.dataset.guidedFilter;
+      if (['all', 'buy', 'pantry'].includes(nextFilter) && breakdownFilter !== nextFilter) {
+        breakdownFilter = nextFilter;
+        render();
+        document.querySelector(`[data-guided-filter="${nextFilter}"]`)?.focus({ preventScroll: true });
+      }
+      return;
+    }
     const button = event.target.closest('[data-guided-action]');
     if (!button) return;
     const action = button.dataset.guidedAction;
@@ -106,6 +139,7 @@
       openedFor = state.who;
       context = 'workday';
       swap = false;
+      breakdownFilter = 'all';
       applied = false;
       selectedStock.clear();
     } else if (action === 'demo') {
@@ -118,6 +152,7 @@
       openedFor = 'rahim';
       context = 'workday';
       swap = false;
+      breakdownFilter = 'all';
       applied = false;
       selectedStock.clear();
     } else if (action === 'close') {

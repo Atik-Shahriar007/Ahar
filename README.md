@@ -20,7 +20,7 @@ Open `http://127.0.0.1:5174`. The server binds to localhost. Set `OPENAI_API_KEY
 
 ## Guided Plan for Today
 
-On Today, **Build today’s plan** opens a one-day rules-based flow for a busy workday or cooking at home. Enter a sample daily budget, check only saved pantry items that are still available, and see meal-by-meal illustrative shopping cost. The optional **Egg → Masoor dal** lunch swap recalculates the total immediately. **Show Rahim’s workday** is a one-tap judge demo: it selects the fictional Rahim persona and uses clearly labelled sample rice and dal stock without changing any saved pantry record. The plan stays in the current browser session; it does not call an AI model, use live prices, estimate nutrition, or save a health record.
+On Today, **Build today’s plan** opens a one-day rules-based flow for a busy workday or cooking at home. Enter a sample daily budget, check only saved pantry items that are still available, and see meal-by-meal illustrative shopping cost. The **All items / To buy / From pantry** filters change which ingredient rows are shown; meal and day totals stay fixed. The optional **Egg → Masoor dal** lunch swap recalculates the total immediately. **Show Rahim’s workday** is a one-tap judge demo: it selects the fictional Rahim persona and uses clearly labelled sample rice and dal stock without changing any saved pantry record. The plan stays in the current browser session; it does not call an AI model, use live prices, estimate nutrition, or save a health record.
 
 ## What is new in this phase
 

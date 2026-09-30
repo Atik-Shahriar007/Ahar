@@ -18,7 +18,7 @@ function harness({ pantry = null } = {}) {
   let profile = structuredClone(personas.nabil);
   let html = '';
   const window = { AHAR_GUIDED_PLAN_CORE: core };
-  const document = { addEventListener: (name, handler) => { handlers[name] = handler; } };
+  const document = { addEventListener: (name, handler) => { handlers[name] = handler; }, querySelector: () => ({ focus: () => {} }) };
   const context = vm.createContext({
     window, document, state, profile, personas, structuredClone,
     today: () => '<div class="dashboard-grid">today demo</div>',
@@ -32,9 +32,13 @@ function harness({ pantry = null } = {}) {
   vm.runInContext(source, context, { filename: 'guided-plan.js' });
   const click = (action) => {
     const button = { dataset: { guidedAction: action } };
-    handlers.click({ target: { closest: () => button } });
+    handlers.click({ target: { closest: (selector) => selector === '[data-guided-action]' ? button : null } });
   };
-  return { context, handlers, html: () => html, click, state };
+  const clickFilter = (filter) => {
+    const button = { dataset: { guidedFilter: filter } };
+    handlers.click({ target: { closest: (selector) => selector === '[data-guided-filter]' ? button : null } });
+  };
+  return { context, handlers, html: () => html, click, clickFilter, state };
 }
 
 test('Today shows the guided loop and the demo shortcut without opening it automatically', () => {
@@ -61,6 +65,37 @@ test('Rahim shortcut opens an unsaved, labelled workday demo and the chosen swap
   app.click('apply');
   assert.match(app.html(), /Plan selected for this demo/);
   assert.match(app.html(), /Nothing was sent to a model or saved to your profile/);
+});
+
+test('breakdown filters switch visible ingredient rows without changing meal or day totals', () => {
+  const app = harness();
+  app.click('demo');
+  const total = (html) => html.match(/<div class="guided-metric"><span>Estimated shopping cost<\/span><b>([^<]+)<\/b>/)?.[1];
+  const initial = app.html();
+  assert.equal(total(initial), '৳72');
+  assert.match(initial, /data-guided-filter="all" aria-pressed="true"/);
+
+  app.clickFilter('pantry');
+  const pantryHtml = app.html();
+  const pantryKeys = [...pantryHtml.matchAll(/data-guided-key="([^"]+)"/g)].map((match) => match[1]);
+  assert.match(pantryHtml, /data-guided-filter="pantry" aria-pressed="true"/);
+  assert.match(pantryHtml, /Showing checked pantry matches · meal and day totals unchanged/);
+  assert.ok(pantryKeys.includes('rice'));
+  assert.ok(pantryKeys.includes('lentils'));
+  assert.ok(!pantryKeys.includes('eggs'));
+  assert.equal(total(pantryHtml), '৳72');
+
+  app.clickFilter('buy');
+  const buyHtml = app.html();
+  const buyKeys = [...buyHtml.matchAll(/data-guided-key="([^"]+)"/g)].map((match) => match[1]);
+  assert.match(buyHtml, /data-guided-filter="buy" aria-pressed="true"/);
+  assert.ok(buyKeys.includes('eggs'));
+  assert.ok(buyKeys.includes('rice'));
+  assert.equal(total(buyHtml), '৳72');
+
+  app.clickFilter('all');
+  assert.match(app.html(), /data-guided-filter="all" aria-pressed="true"/);
+  assert.equal(total(app.html()), '৳72');
 });
 
 test('saved pantry rows are not counted until the user confirms they are still available', () => {

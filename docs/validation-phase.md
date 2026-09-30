@@ -47,7 +47,7 @@ This is a preparation sheet, not a report of completed interviews. Keep a sessio
 2. “What food was already at home, and how did you check?”
 3. “What changed the plan—price, availability, time, cooking equipment, household preference, or something else?”
 4. “What do you do when an ingredient is unavailable?”
-5. Ask the person to use the sample prototype: open **Show Rahim’s workday**, explain the routine and budget, decide whether the demo pantry is real or illustrative, try one swap, and describe how its total changed. Then inspect the historical price chart and explain what its date/unit mean.
+5. Ask the person to use the sample prototype: open **Show Rahim’s workday**, explain the routine and budget, decide whether the demo pantry is real or illustrative, use **To buy / From pantry** to find ingredient rows, confirm filtering leaves totals unchanged, try one swap, and describe how the total changed. Then inspect the historical price chart and explain what its date/unit mean.
 6. “Which part was confusing or felt untrustworthy? What would you change?”
 7. “What, if anything, would stop this from fitting how you actually shop or cook?”
 
