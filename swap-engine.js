@@ -9,6 +9,14 @@
   const baseBasket = basket;
   const key = () => `aharai.swaps.v1.${state.who}`;
   const goalKey = () => `aharai.swap-goal.v1.${state.who}`;
+  const feedbackStore = window.AHAR_FEEDBACK_STORE;
+  const feedbackKey = () => `aharai.swap-feedback.v1.${state.who}`;
+  const feedbackReasons = [
+    { id: 'too-expensive', en: 'Too expensive', bn: 'দাম বেশি' },
+    { id: 'unavailable', en: 'Not available', bn: 'পাওয়া যায়নি' },
+    { id: 'not-preferred', en: 'I do not like it', bn: 'আমার পছন্দ নয়' },
+    { id: 'other', en: 'Other', bn: 'অন্য কারণ' },
+  ];
   const roundQty = (value) => Math.round(value * 1000) / 1000;
 
   function readGoal() {
@@ -23,6 +31,10 @@
   function writeGoal(value) {
     if (!goals.some((goal) => goal.id === value)) return;
     try { localStorage.setItem(goalKey(), value); } catch {}
+  }
+
+  function readFeedback() {
+    return feedbackStore.read(localStorage, feedbackKey(), groups);
   }
 
   function readSelections() {
@@ -108,6 +120,28 @@
     return groups.filter((group) => items.some((item) => item.en === group.source.en));
   }
 
+  function feedbackPromptMarkup() {
+    const prompt = state.feedbackPrompt;
+    if (!prompt) return '';
+    if (prompt.profile !== state.who) {
+      state.feedbackPrompt = null;
+      return '';
+    }
+    const group = groups.find((item) => item.id === prompt.groupId);
+    const option = group?.options.find((item) => item.id === prompt.optionId);
+    if (!group || !option) return '';
+    const saved = readFeedback()[group.id]?.[option.id] || {};
+    const en = !state.bn;
+    const name = en ? option.en : option.bn;
+    const voteOptions = [
+      { id: 'up', en: 'Yes, it was useful', bn: 'হ্যাঁ, কাজে লেগেছে' },
+      { id: 'down', en: 'No, it was not useful', bn: 'না, কাজে লাগেনি' },
+    ].map((item) => `<option value="${item.id}" ${saved.vote === item.id ? 'selected' : ''}>${en ? item.en : item.bn}</option>`).join('');
+    const reasonOptions = feedbackReasons.map((item) => `<option value="${item.id}" ${saved.reason === item.id ? 'selected' : ''}>${en ? item.en : item.bn}</option>`).join('');
+    const reasonsVisible = saved.vote === 'down';
+    return `<section class="swap-feedback" aria-labelledby="swap-feedback-heading"><h3 id="swap-feedback-heading">${en ? `Was ${escapeText(name)} useful?` : `${escapeText(name)} কি কাজে লেগেছে?`}</h3><p class="help">${en ? 'Optional feedback for this sample swap.' : 'এই নমুনা বদল নিয়ে মতামত ঐচ্ছিক।'}</p><div class="swap-feedback-fields"><label><span>${en ? 'Your feedback' : 'আপনার মতামত'}</span><select id="ahar-feedback-vote"><option value="">${en ? 'Choose an answer' : 'একটি উত্তর বাছুন'}</option>${voteOptions}</select></label><label class="swap-feedback-reason" data-feedback-reason-wrap ${reasonsVisible ? '' : 'hidden'}><span>${en ? 'What did not fit?' : 'কোনটি মানানসই হয়নি?'}</span><select id="ahar-feedback-reason"><option value="">${en ? 'Choose a reason' : 'কারণ বাছুন'}</option>${reasonOptions}</select></label></div><div class="swap-feedback-actions"><button type="button" class="button small" data-save-feedback>${saved.vote ? (en ? 'Update feedback' : 'মতামত বদলান') : (en ? 'Save feedback' : 'মতামত রাখুন')}</button><button type="button" class="button light small" data-skip-feedback>${en ? 'Not now' : 'এখন নয়'}</button></div></section>`;
+  }
+
   function swapControls() {
     const available = eligibleGroups();
     const selections = readSelections();
@@ -139,10 +173,15 @@
     const goal = readGoal();
     const goalOptions = goals.map((item) => `<option value="${item.id}" ${goal === item.id ? 'selected' : ''}>${en ? item.en : item.bn}</option>`).join('');
     const reset = en ? 'Reset swaps' : 'বদল বাতিল';
+    const resetFeedback = en ? 'Clear saved feedback' : 'রাখা মতামত মুছুন';
+    const savedFeedbackCount = feedbackStore.count(readFeedback());
+    const feedbackNote = en
+      ? 'Saved only in this browser for this demo profile. It can break ties in local rules rankings, but it is never sent to the optional AI model.'
+      : 'শুধু এই ব্রাউজারে এই নমুনা প্রোফাইলের জন্য থাকে। স্থানীয় নিয়মভিত্তিক সাজানোয় সমতা হলে এটি কাজে লাগে; ঐচ্ছিক এআই মডেলে পাঠানো হয় না।';
     const ask = en ? 'Rank alternatives with AI (optional)' : 'এআই দিয়ে বিকল্প সাজান (ঐচ্ছিক)';
     const controls = fields || `<p class="help">${en ? 'No eligible sample ingredients in this basket.' : 'এই নমুনা তালিকায় বদলানোর উপকরণ নেই।'}</p>`;
     const noRankable = rankable.length ? '' : `<p class="help">${en ? 'AI ranking needs more than one listed alternative; manual swaps are still available.' : 'এআই সাজাতে একাধিক বিকল্প দরকার; হাতে বদলের সুবিধা চালু আছে।'}</p>`;
-    return `<section class="swap-panel" aria-labelledby="swap-heading"><div class="swap-head"><div><span class="eyebrow">${en ? 'USER-CONTROLLED · SAMPLE DATA' : 'আপনার পছন্দ · নমুনা তথ্য'}</span><h2 id="swap-heading">${heading}</h2><p>${intro}</p></div><button type="button" class="button light small" data-reset-swaps ${Object.keys(selections).length ? '' : 'disabled'}>${reset}</button></div><div class="swap-grid">${controls}</div><p class="help swap-caution">${caution}</p><div class="swap-ai"><label class="field"><span>${en ? 'Choose an ingredient to rank' : 'যে উপকরণের বিকল্প সাজাবেন'}</span><select id="ahar-ai-source" ${ready && rankable.length ? '' : 'disabled'}>${sourceOptions}</select></label><label class="field"><span>${en ? 'What matters for this plan?' : 'এই পরিকল্পনায় কোনটি গুরুত্বপূর্ণ?'}</span><select id="ahar-ai-goal" ${ready && rankable.length ? '' : 'disabled'}>${goalOptions}</select></label><button type="button" class="button" data-rank-swaps ${ready && rankable.length ? '' : 'disabled'}>${ask}</button><p class="help">${disclosure}</p>${noRankable}<div class="swap-results" id="ahar-swap-results" aria-live="polite"></div></div></section>`;
+    return `<section class="swap-panel" aria-labelledby="swap-heading"><div class="swap-head"><div><span class="eyebrow">${en ? 'USER-CONTROLLED · SAMPLE DATA' : 'আপনার পছন্দ · নমুনা তথ্য'}</span><h2 id="swap-heading">${heading}</h2><p>${intro}</p></div><div class="swap-reset-actions"><button type="button" class="button light small" data-reset-feedback ${savedFeedbackCount ? '' : 'disabled'}>${resetFeedback}</button><button type="button" class="button light small" data-reset-swaps ${Object.keys(selections).length ? '' : 'disabled'}>${reset}</button></div></div><div class="swap-grid">${controls}</div>${feedbackPromptMarkup()}<p class="help swap-feedback-note">${feedbackNote}</p><p class="help swap-caution">${caution}</p><div class="swap-ai"><label class="field"><span>${en ? 'Choose an ingredient to rank' : 'যে উপকরণের বিকল্প সাজাবেন'}</span><select id="ahar-ai-source" ${ready && rankable.length ? '' : 'disabled'}>${sourceOptions}</select></label><label class="field"><span>${en ? 'What matters for this plan?' : 'এই পরিকল্পনায় কোনটি গুরুত্বপূর্ণ?'}</span><select id="ahar-ai-goal" ${ready && rankable.length ? '' : 'disabled'}>${goalOptions}</select></label><button type="button" class="button" data-rank-swaps ${ready && rankable.length ? '' : 'disabled'}>${ask}</button><p class="help">${disclosure}</p>${noRankable}<div class="swap-results" id="ahar-swap-results" aria-live="polite"></div></div></section>`;
   }
 
   function escapeText(value) {
@@ -150,7 +189,7 @@
   }
 
   function rankLocally(group, metrics, goalId) {
-    return window.AHAR_RANKING_CORE.rank(group.options, metrics, Number(state.budget), goalId);
+    return window.AHAR_RANKING_CORE.rank(group.options, metrics, Number(state.budget), goalId, readFeedback()[group.id] || {});
   }
 
   function showRanking(group, ids, metrics, mode, message = '', goalId = readGoal()) {
@@ -165,6 +204,10 @@
       : (en ? 'Local rules order · AI is unavailable' : 'স্থানীয় নিয়মে সাজানো · এআই এখন পাওয়া যাচ্ছে না');
     const goal = goals.find((item) => item.id === goalId);
     const goalLabel = goal ? (en ? goal.en : goal.bn) : '';
+    const savedFeedbackCount = Object.keys(readFeedback()[group.id] || {}).length;
+    const feedbackNote = savedFeedbackCount
+      ? `<p class="help swap-feedback-note">${en ? `Your ${savedFeedbackCount} saved vote(s) stay on this device, are not sent to the model, and affect only local rules tie-breaks.` : `আপনার ${savedFeedbackCount}টি মতামত এই ডিভাইসেই থাকে, মডেলে পাঠানো হয় না এবং শুধু স্থানীয় নিয়মভিত্তিক সমতায় প্রভাব ফেলে।`}</p>`
+      : '';
     const rows = complete.map((id, index) => {
       const option = byId.get(id);
       const metric = metrics[id];
@@ -175,7 +218,7 @@
       const pantryText = metric.pantryCovered > 0 ? ` · ~৳${metric.pantryCovered} ${en ? 'covered at home' : 'ঘরে মজুত'}` : '';
       return `<li><span><strong>${index + 1}. ${escapeText(name)}</strong><small>~৳${total} · ${budgetText}${pantryText}</small></span><button type="button" class="button light small" data-apply-swap="${option.id}" data-swap-source="${group.id}">${en ? 'Use this' : 'এটি নিন'}</button></li>`;
     }).join('');
-    box.innerHTML = `<div class="swap-result-card"><strong>${heading}</strong><p class="help">${message || (en ? `Priority: ${goalLabel}. Only pre-listed choices are ranked; costs and pantry coverage are calculated locally.` : `অগ্রাধিকার: ${goalLabel}। শুধু তালিকাভুক্ত বিকল্প সাজানো হয়; খরচ ও মজুতের হিসাব স্থানীয়ভাবে হয়।`)}</p><ol>${rows}</ol></div>`;
+    box.innerHTML = `<div class="swap-result-card"><strong>${heading}</strong><p class="help">${message || (en ? `Priority: ${goalLabel}. Only pre-listed choices are ranked; costs and pantry coverage are calculated locally.` : `অগ্রাধিকার: ${goalLabel}। শুধু তালিকাভুক্ত বিকল্প সাজানো হয়; খরচ ও মজুতের হিসাব স্থানীয়ভাবে হয়।`)}</p>${feedbackNote}<ol>${rows}</ol></div>`;
   }
 
   async function requestRanking() {
@@ -212,7 +255,8 @@
           ranked = [...new Set(received)];
           usedAI = true;
         } else if (result.engine === 'rules') {
-          ranked = received.length ? [...new Set(received)] : fallback;
+          // Re-rank rules results in this browser so profile-local feedback never leaves the device.
+          ranked = fallback;
           fallbackNote = result.notice || tr('Showing a local priority-based order.','স্থানীয় অগ্রাধিকারভিত্তিক ক্রম দেখানো হচ্ছে।');
         }
       } finally {
@@ -226,12 +270,32 @@
     button.disabled = false;
   }
 
+  function saveFeedback() {
+    const prompt = state.feedbackPrompt;
+    const vote = document.getElementById('ahar-feedback-vote')?.value;
+    const reason = document.getElementById('ahar-feedback-reason')?.value || '';
+    if (!prompt || prompt.profile !== state.who) return;
+    if (!['up', 'down'].includes(vote) || (vote === 'down' && !feedbackReasons.some((item) => item.id === reason))) {
+      toast(tr('Choose a valid answer and reason before saving.','মতামত রাখার আগে উত্তর ও কারণ বাছুন।'));
+      return;
+    }
+    const saved = feedbackStore.save(localStorage, feedbackKey(), groups, prompt.groupId, prompt.optionId, vote, reason);
+    if (!saved) {
+      toast(tr('This browser could not save the feedback; you can continue without it.','এই ব্রাউজারে মতামত রাখা যায়নি; আপনি মতামত ছাড়াই চালিয়ে যেতে পারেন।'));
+      return;
+    }
+    state.feedbackPrompt = null;
+    render();
+    toast(tr('Feedback saved only in this browser.','মতামত শুধু এই ব্রাউজারেই রাখা হয়েছে।'));
+  }
+
   function chooseSwap(sourceId, optionId) {
     const group = groups.find((item) => item.id === sourceId);
     if (!group || !group.options.some((option) => option.id === optionId)) return;
     const selections = readSelections();
     selections[sourceId] = optionId;
     writeSelections(selections);
+    state.feedbackPrompt = { groupId: sourceId, optionId, profile: state.who };
     state.checked = [];
     render();
     toast(tr('Sample basket updated. Review the changed meal idea.','নমুনা বাজার বদলেছে। খাবারের ধারণাটিও দেখে নিন।'));
@@ -245,6 +309,11 @@
       writeGoal(event.target.value);
       return;
     }
+    if (event.target.id === 'ahar-feedback-vote') {
+      const reasonWrap = document.querySelector('[data-feedback-reason-wrap]');
+      if (reasonWrap) reasonWrap.hidden = event.target.value !== 'down';
+      return;
+    }
     const select = event.target.closest('[data-aharswap]');
     if (!select) return;
     const sourceId = select.dataset.aharswap;
@@ -252,12 +321,20 @@
     if (select.value) selections[sourceId] = select.value;
     else delete selections[sourceId];
     writeSelections(selections);
+    state.feedbackPrompt = select.value ? { groupId: sourceId, optionId: select.value, profile: state.who } : null;
     state.checked = [];
     render();
     toast(tr('Sample basket updated.','নমুনা বাজারের হিসাব বদলেছে।'));
   });
 
   document.addEventListener('click', (event) => {
+    if (event.target.closest('[data-reset-feedback]')) {
+      const cleared = feedbackStore.clear(localStorage, feedbackKey());
+      state.feedbackPrompt = null;
+      render();
+      toast(cleared ? tr('Saved feedback for this profile was cleared from this browser.','এই ব্রাউজার থেকে এই প্রোফাইলের মতামত মুছে ফেলা হয়েছে।') : tr('Could not clear saved feedback.','রাখা মতামত মুছতে সমস্যা হয়েছে।'));
+      return;
+    }
     if (event.target.closest('[data-reset-swaps]')) {
       try { localStorage.removeItem(key()); } catch {}
       state.checked = [];
@@ -266,7 +343,15 @@
       return;
     }
     if (event.target.closest('[data-rank-swaps]')) {
-      requestRanking();
+      return requestRanking();
+    }
+    if (event.target.closest('[data-save-feedback]')) {
+      saveFeedback();
+      return;
+    }
+    if (event.target.closest('[data-skip-feedback]')) {
+      state.feedbackPrompt = null;
+      render();
       return;
     }
     const apply = event.target.closest('[data-apply-swap]');

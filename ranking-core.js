@@ -1,7 +1,8 @@
 /* Deterministic comparison baseline shared by the UI, local API, and tests. */
 (function (root) {
-  function rank(options, metrics, budget, goalId) {
+  function rank(options, metrics, budget, goalId, feedback = {}) {
     const safeBudget = Number(budget);
+    const feedbackScore = (entry) => entry?.vote === 'up' ? 1 : entry?.vote === 'down' ? -1 : 0;
     return [...options].sort((a, b) => {
       const aMetrics = metrics[a.id];
       const bMetrics = metrics[b.id];
@@ -20,6 +21,7 @@
       return Number(bFits) - Number(aFits)
         || bGoalScore - aGoalScore
         || aMetrics.total - bMetrics.total
+        || feedbackScore(feedback[b.id]) - feedbackScore(feedback[a.id])
         || a.id.localeCompare(b.id);
     }).map((option) => option.id);
   }
