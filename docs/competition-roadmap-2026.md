@@ -16,7 +16,7 @@ The strongest parts for AharAI are pantry-aware meal planning, budget-sensitive 
 
 Keep the established **AharAI** name and Bangladesh-first framing. The attached discussion’s NutriShield name, all-in-one product promise, calorie targets, weight-gain/loss goals, nutrition-gap radar, and broad health analytics would dilute the current concept and create unsupported health claims. Do not add disease-specific advice, child nutrition targets, clinical family profiles, or allergy guarantees without qualified review and robust data. Packaged-food OCR, live food-photo recognition, expiry notifications, accounts, reminders, monthly reports, and a general chatbot are later-stage ideas; none is required to make this prototype clearer or more credible.
 
-The interface is primarily a browser prototype, now paired with an optional same-origin Node endpoint. Photo recognition, meal estimates, sample history, profile suggestions, and Food plan prices remain scripted or illustrative. My bazar additionally shows a small static, dated WFP/HDX historical-price snapshot for two Dhaka markets; it is not live and does not affect the plan budget. The only live model function is an explicitly requested rank of fixed sample swap IDs against a selected planning priority. This demonstrates bounded AI and a possible local-data experience, not a professionally reviewed catalogue, validated personalization system, or live market service.
+The interface is primarily a browser prototype, now paired with an optional same-origin Node endpoint. Photo recognition, nutrition estimates, sample history, profile suggestions, and Food plan prices remain scripted or illustrative. My bazar shows a small static, dated WFP/HDX historical-price snapshot for two Dhaka markets; it is not live and does not affect the plan budget. Optional model functions are limited to (1) ranking fixed sample swap IDs against a selected planning priority and (2) mapping an explicitly submitted Bangla/English sentence to a fixed demo food list with quoted evidence. Text results are validated, editable, and saved only after confirmation. These are bounded prototype interactions—not evidence of parser accuracy, a professionally reviewed catalogue, validated personalization, or a live market service.
 
 ## Staged plan
 
@@ -40,7 +40,7 @@ Before claiming that users need this, interview a small, diverse group of consen
 
 ### Stage 3 — Evaluate bounded AI and expand only where it earns its place
 
-First compare the implemented constrained ranker with its deterministic baseline using the same approved options, priorities, and sample inputs. Report when rankings differ and whether users find them more useful; do not claim better outcomes from one test call. Only after validated local data, a consent plan, and user testing should the team consider meal-text interpretation. Keep arithmetic, budget ceilings, exclusions, and ingredient/unit matching deterministic and inspectable. Do not expose credentials in the static frontend or present generated output as medical advice.
+Compare the constrained ranker with its deterministic baseline using the same demo options, priorities, and sample inputs. Also test meal-text examples in Bangla, English, and mixed phrasing against human-reviewed expected food IDs, units, and quoted evidence; report errors and user corrections rather than claiming accuracy from a few examples. Keep arithmetic, budget ceilings, exclusions, and ingredient/unit checks deterministic and inspectable. The current text feature is only a prototype; expand its catalogue or connect it to nutrition only after appropriate data review, consent, and user testing. Do not expose credentials in the static frontend or present output as medical advice.
 
 ### Stage 4 — Make the pitch evidence-led
 
@@ -51,7 +51,7 @@ Use a short demo with one clear contrast: the same familiar food decision for tw
 - **Originality:** show the connected local decision loop (routine + budget + existing food), not another isolated calorie scanner. Treat differentiation as a hypothesis until competitors and users are researched.
 - **Feasibility:** keep the first scope small, offline-friendly, explainable, and explicit about sample data and missing integrations.
 - **Social impact:** design for practical choices across different budgets and work patterns, without body shaming or assuming that every household has the same needs.
-- **Meaningful AI:** describe the optional constrained ranker accurately, distinguish it from still-scripted photo/meal flows, explain why arithmetic stays deterministic, and compare its choices with the rules-only baseline before claiming added value.
+- **Meaningful AI:** show the optional constrained swap ranker and bounded meal-text mapper accurately; distinguish them from scripted photo/nutrition flows, explain why validation and arithmetic stay deterministic, and test against reviewed examples and user corrections before claiming accuracy or added value.
 - **Trust:** no diagnosis, promised weight change, false precision from photos, unverified current prices, or fabricated validation evidence.
 
 ## Sources

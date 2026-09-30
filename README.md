@@ -10,7 +10,7 @@ No package installation is required. To run the full local prototype and optiona
 node server.mjs
 ```
 
-Open `http://127.0.0.1:5174`. The server binds to localhost. Set `OPENAI_API_KEY` and `OPENAI_API_BASE` in the **server environment only** to enable optional model ranking; never put a key in frontend code or GitHub. Without these variables, the deterministic local ranking still works. For a static-only preview, run `python3 -m http.server 5174 --bind 127.0.0.1`.
+Open `http://127.0.0.1:5174`. The server binds to localhost. Set `OPENAI_API_KEY` and `OPENAI_API_BASE` in the **server environment only** to enable optional swap ranking and meal-text interpretation; never put a key in frontend code or GitHub. Without these variables, swap ranking uses local rules and meal text uses exact-name matching plus manual entry. A static-only preview (`python3 -m http.server 5174 --bind 127.0.0.1`) retains manual entry but not the server-backed text request.
 
 ## Demo shortcuts
 
@@ -30,9 +30,11 @@ The Food plan still lets users select from a fixed list of illustrative ingredie
 
 After applying a swap, users may optionally mark it useful or not and select a simple reason. Feedback is saved in this browser under the current fictional demo profile, can be cleared independently from swap choices, and only breaks ties in local rules rankings. It is never included in an AI request and does not change quantities, costs, pantry calculations, or the candidate catalogue.
 
+**My plate** now also has optional Bangla/English meal-text interpretation. Only after the user presses the review button does the browser send the sentence to the localhost server; the server supplies a fixed demonstration food list, validates food IDs against quoted text and checks that any quantity/unit is supported by the quote. The user can correct or remove results, or choose foods manually without AI. Nothing changes the sample photo result, nutrition estimate, day log, or Food plan. Only after a separate confirmation are the selected food IDs and any user-approved quantity/unit stored in this browser; the original sentence is not stored.
+
 ## Important limitations
 
-Meal/photo results, nutrition, the swap catalogue, household budgets, and Food plan prices remain illustrative or scripted. The market pulse is a **dated historical excerpt**, not a current market-price feed or a prediction of what a household will pay. There is no live food database, account system, or clinical decision service. Uploaded meal photos are local previews and are not analyzed or uploaded. Confirmed pantry entries and swap selections stay in the current browser. On an explicit ranking request, the optional AI endpoint receives only a selected ingredient ID, chosen planning goal, sample budget, candidate costs after local pantry adjustment, and aggregate pantry-covered value—not raw pantry rows, a name, profile/body measurements, or photos.
+Meal/photo results, nutrition, the swap catalogue, household budgets, and Food plan prices remain illustrative or scripted. The market pulse is a **dated historical excerpt**, not a current market-price feed or a prediction of what a household will pay. There is no live food database, account system, or clinical decision service. Uploaded meal photos are local previews and are not analyzed or uploaded. Confirmed pantry entries and swap selections stay in the current browser. On a swap-ranking request, the model receives the selected ingredient ID, goal, sample budget, and aggregate candidate metrics—not raw pantry rows, a name, profile/body measurements, or photos. On the separate, user-triggered text request, it receives only the entered sentence and the fixed public demo food list; no profile, photo, or account identifier is included. The raw sentence is not saved, and parsed foods are stored locally only after confirmation. The parser does not estimate calories, nutrition, health needs, or food suitability.
 
 Do not describe the historical sample as today's price, the scripted nutrition as measured, or the small synthetic benchmark as evidence of model accuracy or user impact. The project keeps its AharAI name and Bangladesh-first concept; the attached NutriShield discussion is a feature brainstorm, not a rebrand.
 

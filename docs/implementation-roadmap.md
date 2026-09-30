@@ -73,13 +73,15 @@ All basket prices and quantities remain demonstration values. No clinical or nut
 
 **Gate:** no nutrition-equivalence, calorie, disease, or affordability claims until evidence and review support them.
 
-### Step 6 — Bangla meal-text interpretation (future AI candidate)
+### Step 6 — Bangla meal-text interpretation (prototype increment implemented)
 
-1. Use a user-entered Bangla/English meal sentence only after a separate, explicit action.
-2. Ask the model to map phrases into IDs from a reviewed ingredient list, with optional quantities and uncertainty—not to invent foods or estimate calories from text alone.
-3. Validate IDs/units, show the parsed result for correction, and require confirmation before adding a meal or changing a plan.
-4. Keep model uncertainty visible and preserve a rules-only manual-entry path.
-5. Exclude photos, health profile fields, and account identity from the request unless a future consented design specifically requires them.
+1. My plate accepts a Bangla/English sentence only after the user explicitly presses **Review sentence**; the client sends only that text field.
+2. The optional server prompt maps into a fixed, bilingual demonstration food allowlist. It must not invent foods or estimate calories, nutrition, suitability, or health needs.
+3. Shared validation rejects IDs without a food name in quoted evidence, unsupported units, contradictory/unquoted amounts, duplicate IDs, and items outside the list. The UI exposes a non-calibrated uncertainty label and allows correction/removal.
+4. The user must explicitly confirm before food IDs and any accepted quantity/unit are saved to browser storage. The raw sentence is not saved, and this separate log does not change photo results, sample nutrition, the day log, or Food plan.
+5. If the model is unavailable, exact-name rules matching and a no-AI manual food picker remain available. The request excludes photos, profile/health fields, account identity, and pantry data.
+
+**Still open:** test colloquial Bangla spellings, mixed-language phrasing, portion/unit comprehension, and correction rates with consenting participants before claiming accuracy or expanding the food list. The fixed list and model uncertainty labels are prototype aids, not a validated food ontology or calibrated confidence measure. Any future calorie/nutrient link requires suitable data and qualified review. This step does not implement meal-photo recognition.
 
 ### Step 7 — Optional meal-photo recognition (future; not a near-term requirement)
 

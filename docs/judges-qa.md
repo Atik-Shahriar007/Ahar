@@ -7,7 +7,13 @@ The photo result is scripted in this prototype; it is not a working scanner. Our
 We do not use a model for arithmetic. In this prototype, an optional server-side model ranks IDs from a fixed demo swap list against a user-selected budget, pantry-use, or sample meal-style priority. Rules calculate costs, pantry coverage, and budget fit; a deterministic ranker remains available. The list has not had professional nutrition review, and we still need to test whether model ranking adds value over that baseline.
 
 **What information does the model receive?**
-Only the selected catalogue ingredient ID, one planning priority, the sample budget, and candidate costs after pantry adjustment plus aggregate pantry-covered amounts. It receives no name, profile fields, body measurements, raw pantry rows, or photos. The credential stays on the server. The model returns approved IDs only; the user still chooses.
+There are two separate, opt-in requests. Swap ranking receives the selected catalogue ingredient ID, planning priority, sample budget, and aggregate candidate costs/stock coverage. Meal-text interpretation receives only the sentence after the user presses its review button; the server supplies the fixed demo food list. Neither includes a name, profile/health fields, body measurements, pantry rows, or photos. Credentials stay on the localhost server. The text parser returns only allowlisted food IDs with quoted evidence; the user can correct everything and must confirm before local saving.
+
+**Does meal text recognition know nutrition or calories?**
+No. It only maps explicitly mentioned words to a small fixed demo food list. Units and any amount must be supported by the quoted sentence; results show an uncalibrated uncertainty label and remain editable. The feature does not estimate calories, nutrition, allergies, or health needs.
+
+**What if the model is unavailable?**
+With the local server running but no model credentials, the parser falls back to exact-name matching only. Users can always choose foods manually without AI. A static-only preview also retains manual selection. Nothing is added until the user confirms.
 
 **Does the feedback train or personalize the AI?**
 No. Feedback is optional and stored in this browser under the current fictional demo profile. It only breaks ties in the local rules ranking, is excluded from the model request, and has a separate clear control. We have not collected real-user feedback or measured whether the suggestions are useful.
@@ -28,7 +34,7 @@ My bazar contains a small static excerpt from the WFP Price Database via HDX. Th
 No. The Market Pulse is a historical visual for two selected Dhaka markets and its snapshot ends in July 2026. Sample purchase and plan prices are separate. The prototype has no live market-price integration or savings claim.
 
 **What impact have you achieved?**
-None has been measured yet. We have a clickable prototype and a proposed pilot. We would measure sustained use, dietary variety, actual spending and recommendation quality—not claim disease prevention from a demo.
+None has been measured yet. We have a clickable prototype and a proposed pilot. We would test text-interpretation corrections and comprehension as well as sustained use, dietary variety, actual spending and recommendation quality—not claim accuracy, savings, or disease prevention from a demo.
 
 **Who pays?**
 We would test optional paid convenience features and sponsored access while protecting essential guidance. No payer is confirmed. We need real cost and willingness-to-pay evidence before forecasting revenue.

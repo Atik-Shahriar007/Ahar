@@ -19,12 +19,12 @@ We are IUT_b(a)s. Meet AharAI.
 Food guidance that fits your meals, budget and routine.
 
 00:26–00:48 | A PHOTO IS THE START
-Picture: My plate → Review this lunch → correct your personal portion → save. Show the supplied shared-lunch photo; never count the entire spread as one person’s meal.
+Picture: My plate → show the scripted photo label and correct a personal portion. Then type “দুই কাপ ভাত, ১টি ডিম” into the separate text card, request a review, correct one field, and show the explicit local-save confirmation. Use a fictional demonstration sentence; never count the whole shared-lunch photo as one person's meal.
 Bangla VO:
-খাবারের ছবি দিয়ে কথা শুরু। কিন্তু এই প্রোটোটাইপে ছবির ফল নমুনা হিসেবে দেখানো—ছবি বিশ্লেষণ চলছে না। তেল বা পরিমাণ ছবিতে নিশ্চিত জানা যায় না, তাই ব্যবহারকারীই নিজের অংশ ঠিক করবেন।
+ছবির ফল এই প্রোটোটাইপে নমুনা—ছবি বিশ্লেষণ হয় না। আলাদা করে, চাইলে বাংলায় বা ইংরেজিতে খাবারের কথা লিখে নির্দিষ্ট তালিকার সঙ্গে মিলিয়ে দেখা যায়। ফল ঠিক করে ব্যবহারকারী নিজেই সংরক্ষণ করেন; ক্যালরি বা পুষ্টি অনুমান করা হয় না।
 English captions:
-A photo can start the conversation. This prototype's photo result is scripted.
-Portions need confirmation before any future estimate.
+The photo result is scripted; no image recognition runs.
+Optional text maps to a fixed demo list. Review and confirm; no nutrition is inferred.
 
 00:48–01:10 | SHOW PERSONALIZATION, NOT JUST A CLAIM
 Picture: Nabil's home recommendation; switch to Rahim in My profile; show his home recommendation. Use a clean hard cut between the two.
@@ -69,7 +69,7 @@ Small text: Interactive concept prototype
 
 RECORDING NOTES
 Record at 1920×1080 desktop or a clean 390×844 phone viewport; confirm required aspect ratio in the actual competition rules. Crop browser chrome, not uncertainty or prototype labels. Use natural sound softly under the opening; keep speech clearly audible.
-Do not film an arbitrary uploaded image and imply recognition. Use the supplied lunch photo and keep the demo labels visible.
-Only demonstrate the optional AI ranking when the server is configured. Say it ranks a small fixed sample list; rules handle quantities and costs. The Market Pulse is a dated historical snapshot, not today's prices. Do not imply meal photos are analyzed, the swaps were professionally validated, the app diagnoses disease, or the proposed pilot has happened.
+Do not film an arbitrary uploaded image and imply recognition. Use the supplied lunch photo and keep the demo labels visible. For the text card, use a fictional example sentence and show the review/correction step; do not claim measured parser accuracy or nutritional insight.
+Only demonstrate optional AI features when the local server is configured. Swap ranking orders a small fixed sample list; rules handle quantities and costs. Meal-text parsing maps one entered sentence to fixed demo IDs and must be reviewed; do not present it as a nutrition or calorie model. If the service is unavailable, show exact-match/manual mode. The Market Pulse is a dated historical snapshot, not today's prices. Do not imply meal photos are analyzed, swaps were professionally validated, the app diagnoses disease, or the proposed pilot has happened.
 Keep captions to two lines. Allow time to see the changed advice; cut extra recipe footage before cutting the personalization comparison.
 Keep a backup screen recording and a rehearsed offline path. External fonts fall back to system fonts when offline.
