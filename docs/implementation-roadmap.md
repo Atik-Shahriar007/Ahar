@@ -124,3 +124,8 @@ Before any public API deployment, choose an authorized host and confirm its secr
 ## Suggested next milestone after this release
 
 Use the separate [`validation-phase.md`](validation-phase.md) one-month plan to test whether people understand the historical Market Pulse and what local data they actually need. After that initial review, implement the Step 4 device-local feedback control to test whether the current curated choices are useful before adding model complexity or collecting broader data. The chart remains a historical demo until an appropriate current source and target geography are selected.
+
+
+### Continuation status update — 30 September 2026
+
+The preceding **Suggested next milestone after this release** paragraph is stale: Step 4's browser-local feedback control is already implemented, and the Guided Plan for Today showcase increment is now also implemented. For current direction, read [`../todo.md`](../todo.md). A practical next focus is Step 8 pilot preparation and demo comprehension/accessibility; Step 7 photo-recognition work remains optional and deferred. Step 5 data grounding is still partial, and Step 9 deployment remains a future gate—not a requirement for the current static showcase prototype.

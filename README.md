@@ -54,6 +54,7 @@ The ranker comparison uses synthetic scenarios only. An optional model compariso
 
 ## Project notes
 
+- [`context.md`](context.md) and [`todo.md`](todo.md): start here for the project handoff, implemented features, open boundaries, and prioritized future work.
 - [`docs/competition-roadmap-2026.md`](docs/competition-roadmap-2026.md): evidence-led competition analysis and staged product roadmap.
 - [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md): detailed feature sequence and safeguards.
 - [`docs/validation-phase.md`](docs/validation-phase.md): source review, interview preparation, implementation gates, and commands.
