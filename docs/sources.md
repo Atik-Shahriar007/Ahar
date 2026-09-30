@@ -8,6 +8,10 @@ Prepared 30 September 2026. This is a source ledger, not proof that the prototyp
 | [Grameenphone: FutureMakers finale, 5 November 2025](https://www.grameenphone.com/about/media-center/press-release/grameenphone-futuremakers-grand-finale-ignites-ai-innovation-among) | Published evaluation emphasis: originality, feasibility, social impact and meaningful AI | Do not claim these are verified current-round scoring weights |
 | [WHO / NIPSOM: Bangladesh STEPS 2018 report](https://cdn.who.int/media/docs/default-source/ncds/ncd-surveillance/data-reporting/bangladesh/steps-ban-2018-eng.pdf?download=true&sfvrsn=964a03f7_1) | National evidence about adult dietary and other NCD risk factors; see diet chapter | Historical survey; no causal proof for AharAI and no inference from someone's appearance |
 | [FAO: Bangladesh food-based dietary guidelines](https://www.fao.org/nutrition/education/dietary-guidelines/regions/bangladesh/en/) | Locally grounded guidance on variety and balanced meals | General guidance, not individualized clinical advice |
+| [WFP Bangladesh food prices via HDX](https://data.humdata.org/dataset/wfp-food-prices-for-bangladesh) | Static Market Pulse demo excerpt for two Dhaka markets; source rows include date, unit, market, price type, and flag | Latest row in the reviewed snapshot is 15 July 2026; historical only, mixed raw units, not connected to Food plan totals |
+| [FAO/INFOODS: Bangladesh Food Composition Table, 2013](https://www.fao.org/fileadmin/templates/food_composition/documents/FCT_10_2_14_final_version.pdf) | Candidate Bangladesh food-composition reference; PDF and Excel are listed by INFOODS | Reuse terms for the data were not confirmed; no values imported into this prototype |
+| [Updated Bangladesh food-composition table, 2022 paper](https://pubmed.ncbi.nlm.nih.gov/35763921/) | Describes an updated database of 447 foods and 89 components, with mixed data provenance | Publication is not the underlying database license or access confirmation; no values imported |
+| [AgriPriceBD dataset](https://data.mendeley.com/datasets/bkmxnrn3hn) | Candidate for researching price-data extraction and anomaly handling | Secondary LLM-assisted transcription; compare to original reports before treating as reference data |
 
 ## Claims deliberately left out
 
@@ -18,6 +22,8 @@ Prepared 30 September 2026. This is a source ledger, not proof that the prototyp
 Check the actual invitation or portal for the current edition, deadline, eligibility, team size, track, word limits, accepted video length/format, prototype link requirements, and AI-use disclosures. The user requested a two-minute pitch; that duration is not independently verified here as a competition rule.
 
 The proposed brand has not undergone trademark or domain clearance. Keep IUT_b(a)s exactly as supplied.
+
+The Market Pulse UI and regeneration details are documented in [`../data/sources.json`](../data/sources.json) and [`validation-phase.md`](validation-phase.md). Its data is a dated historical excerpt, not a live quote.
 
 ## Evidence to gather next
 

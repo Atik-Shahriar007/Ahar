@@ -16,7 +16,7 @@ The strongest parts for AharAI are pantry-aware meal planning, budget-sensitive 
 
 Keep the established **AharAI** name and Bangladesh-first framing. The attached discussion’s NutriShield name, all-in-one product promise, calorie targets, weight-gain/loss goals, nutrition-gap radar, and broad health analytics would dilute the current concept and create unsupported health claims. Do not add disease-specific advice, child nutrition targets, clinical family profiles, or allergy guarantees without qualified review and robust data. Packaged-food OCR, live food-photo recognition, expiry notifications, accounts, reminders, monthly reports, and a general chatbot are later-stage ideas; none is required to make this prototype clearer or more credible.
 
-The interface is primarily a browser prototype, now paired with an optional same-origin Node endpoint. Photo recognition, meal estimates, sample history, profile suggestions, and prices remain scripted or illustrative; the only live model function is an explicitly requested rank of fixed sample swap IDs against a selected planning priority. This demonstrates a bounded AI decision point, not a professionally reviewed catalogue, validated personalization system, or live market service.
+The interface is primarily a browser prototype, now paired with an optional same-origin Node endpoint. Photo recognition, meal estimates, sample history, profile suggestions, and Food plan prices remain scripted or illustrative. My bazar additionally shows a small static, dated WFP/HDX historical-price snapshot for two Dhaka markets; it is not live and does not affect the plan budget. The only live model function is an explicitly requested rank of fixed sample swap IDs against a selected planning priority. This demonstrates bounded AI and a possible local-data experience, not a professionally reviewed catalogue, validated personalization system, or live market service.
 
 ## Staged plan
 
@@ -36,7 +36,7 @@ Users can choose from a small illustrative swap catalogue and see quantities, pa
 
 ### Stage 2 — Validate the problem and replace invented assumptions
 
-Before claiming that users need this, interview a small, diverse group of consenting adults across student, physically demanding work, and household-planning contexts. Ask about actual meal decisions, budget trade-offs, pantry practices, Bangla usability, and why a suggested change would be rejected. Record what was said without inventing participants or results. In parallel, identify a licensed Bangladesh food-composition source and a dated, location-specific price source; have a qualified nutrition professional review any health-related suggestions. Do not treat the current sample values as survey or affordability evidence.
+Before claiming that users need this, interview a small, diverse group of consenting adults across student, physically demanding work, and household-planning contexts. Ask about actual meal decisions, budget trade-offs, pantry practices, Bangla usability, and why a suggested change would be rejected. Record what was said without inventing participants or results. The new static Market Pulse makes the future local-data experience visible, but does not complete this validation stage: the team still needs to select a target area, find data appropriate to it, and review freshness and units. Do not treat the historical chart or illustrative plan prices as survey, current-price, or affordability evidence.
 
 ### Stage 3 — Evaluate bounded AI and expand only where it earns its place
 

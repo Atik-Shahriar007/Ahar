@@ -19,7 +19,10 @@ That needs field testing. The demo offers Bangla, large controls and a non-gym f
 The sample plan shows the estimated total and flags whether it fits the sample budget. Its alternatives are only shopping-list examples—not nutritionally equivalent or guaranteed available. Real affordability and nutritional adequacy need verified local data and professional review.
 
 **Where does the data come from?**
-The next stage would curate a licensed local food composition source and collect dated, location-specific prices. No live database is integrated today. Expert review and evaluation precede health recommendations.
+My bazar contains a small static excerpt from the WFP Price Database via HDX. The latest record shown is dated 15 July 2026; we display the market, units, source flags, and dates so it is not mistaken for a live quote. It does not feed the illustrative Food plan totals. Nutrition data remains illustrative; selecting and validating suitable local sources is a later build-phase task.
+
+**Are the prices current or used by the budget planner?**
+No. The Market Pulse is a historical visual for two selected Dhaka markets and its snapshot ends in July 2026. Sample purchase and plan prices are separate. The prototype has no live market-price integration or savings claim.
 
 **What impact have you achieved?**
 None has been measured yet. We have a clickable prototype and a proposed pilot. We would measure sustained use, dietary variety, actual spending and recommendation quality—not claim disease prevention from a demo.
