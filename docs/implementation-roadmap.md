@@ -83,6 +83,15 @@ All basket prices and quantities remain demonstration values. No clinical or nut
 
 **Still open:** test colloquial Bangla spellings, mixed-language phrasing, portion/unit comprehension, and correction rates with consenting participants before claiming accuracy or expanding the food list. The fixed list and model uncertainty labels are prototype aids, not a validated food ontology or calibrated confidence measure. Any future calorie/nutrient link requires suitable data and qualified review. This step does not implement meal-photo recognition.
 
+### Showcase increment — Guided Plan for Today (implemented)
+
+1. The Today screen opens a one-day flow for a busy workday or cooking at home, with an editable sample budget and breakfast/lunch/dinner ideas.
+2. Only saved pantry items the user checks as still available reduce the illustrative basket; the calculation does not consume or rewrite pantry records.
+3. A user-selected lunch swap (egg to masoor dal) immediately recomputes sample cost and remaining budget. The rule engine is local, deterministic, and separate from optional AI ranking.
+4. **Show Rahim’s workday** selects a fictional persona and an unsaved, clearly labelled sample rice/dal pantry. It is a demo shortcut, not Rahim's actual shopping record.
+
+**Boundary:** all costs and meal quantities are invented examples. This flow makes no live-price, nutrition-equivalence, allergy, health, or affordability guarantee; selecting the plan does not write a persistent health or meal record.
+
 ### Step 7 — Optional meal-photo recognition (future; not a near-term requirement)
 
 1. First build an appropriately licensed, representative, consented dataset and agree on deletion/security rules.

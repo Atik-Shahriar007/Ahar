@@ -1,10 +1,10 @@
 # Questions worth rehearsing
 
 **Isn't this another calorie scanner?**
-The photo result is scripted in this prototype; it is not a working scanner. Our product hypothesis is the connected decision loop: confirmed pantry, illustrative budget, and a user-selected shopping alternative. Show the basket changing, and validate whether that solves a real problem before claiming differentiation.
+The photo result is scripted in this prototype; it is not a working scanner. The Today demo instead makes a connected decision loop visible: a chosen routine, only pantry stock the user confirms is still present, an illustrative budget, and a user-selected shopping alternative. Show its sample total changing; validate whether the loop solves a real problem before claiming differentiation.
 
 **Why use AI instead of rules?**
-We do not use a model for arithmetic. In this prototype, an optional server-side model ranks IDs from a fixed demo swap list against a user-selected budget, pantry-use, or sample meal-style priority. Rules calculate costs, pantry coverage, and budget fit; a deterministic ranker remains available. The list has not had professional nutrition review, and we still need to test whether model ranking adds value over that baseline.
+We do not use a model for arithmetic. The Guided Plan for Today, costs, and pantry deductions all use local deterministic rules. Separately, an optional server-side model ranks IDs from a fixed demo swap list against a user-selected budget, pantry-use, or sample meal-style priority. The list has not had professional nutrition review, and we still need to test whether model ranking adds value over that baseline.
 
 **What information does the model receive?**
 There are two separate, opt-in requests. Swap ranking receives the selected catalogue ingredient ID, planning priority, sample budget, and aggregate candidate costs/stock coverage. Meal-text interpretation receives only the sentence after the user presses its review button; the server supplies the fixed demo food list. Neither includes a name, profile/health fields, body measurements, pantry rows, or photos. Credentials stay on the localhost server. The text parser returns only allowlisted food IDs with quoted evidence; the user can correct everything and must confirm before local saving.
@@ -26,6 +26,9 @@ That needs field testing. The demo offers Bangla, large controls and a non-gym f
 
 **What happens when an option costs too much?**
 The sample plan shows the estimated total and flags whether it fits the sample budget. Its alternatives are only shopping-list examples—not nutritionally equivalent or guaranteed available. Real affordability and nutritional adequacy need verified local data and professional review.
+
+**Is Rahim’s demo pantry real, and does the plan save anything?**
+No. **Show Rahim’s workday** is a fictional one-tap scenario with explicitly labelled, unsaved sample rice and dal. In the regular flow, the user checks which previously saved pantry items are still available before any deduction. Selecting the plan keeps a confirmation in the current demo session only; it does not save a health record or send information to a model.
 
 **Where does the data come from?**
 My bazar contains a small static excerpt from the WFP Price Database via HDX. The Food plan also shows two explicit demo links to the WFP lentil and wheat-flour series, with dates, raw units, and source flags; it lists unmatched options instead of filling gaps. This is historical context only—the links are not professional equivalence checks and do not feed sample totals. Nutrition data remains unimported while file access and reuse terms are unconfirmed.

@@ -15,7 +15,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const host = '127.0.0.1';
 const port = Number(process.env.PORT || 5174);
 const model = process.env.AHAR_LLM_MODEL || 'gpt-5-mini';
-const publicFiles = new Set(['index.html', 'app.js', 'pantry.js', 'planner.js', 'swap-catalog.js', 'swap-engine.js', 'market-data.js', 'market-pulse.js', 'ingredient-evidence.js', 'meal-text-catalog.js', 'meal-text-core.js', 'meal-text.js', 'ranking-core.js', 'feedback-store.js', 'style.css', 'bajar.jpeg', 'pic_lunch.png', 'assets/sample-bangladeshi-meal.jpg']);
+const publicFiles = new Set(['index.html', 'app.js', 'pantry.js', 'planner.js', 'swap-catalog.js', 'swap-engine.js', 'market-data.js', 'market-pulse.js', 'ingredient-evidence.js', 'meal-text-catalog.js', 'meal-text-core.js', 'meal-text.js', 'guided-plan-core.js', 'guided-plan.js', 'ranking-core.js', 'feedback-store.js', 'style.css', 'bajar.jpeg', 'pic_lunch.png', 'assets/sample-bangladeshi-meal.jpg']);
 const mime = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8', '.jpeg': 'image/jpeg', '.jpg': 'image/jpeg',

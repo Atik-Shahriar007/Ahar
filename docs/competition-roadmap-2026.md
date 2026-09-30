@@ -44,7 +44,7 @@ Compare the constrained ranker with its deterministic baseline using the same de
 
 ### Stage 4 — Make the pitch evidence-led
 
-Use a short demo with one clear contrast: the same familiar food decision for two fictional adults with different routines/budgets, then show how confirmed pantry stock changes what must be purchased. Label personas and prices as illustrative. Close with a modest proposed pilot and measurable questions: accepted suggestions actually tried, out-of-budget recommendations, user corrections, and reported usefulness across Bangla/English and different contexts. Do not claim health outcomes, cost savings, or user traction before measuring them.
+Use the Today screen’s **Show Rahim’s workday** shortcut to show one connected sequence: workday routine, clearly labelled demo pantry, daily sample budget, then a user-selected lunch swap and the recalculated total. If time permits, contrast a second fictional adult with a different routine/budget. Label all personas and prices as illustrative. Close with a modest proposed pilot and measurable questions: accepted suggestions actually tried, out-of-budget recommendations, user corrections, and reported usefulness across Bangla/English and different contexts. Do not claim health outcomes, cost savings, or user traction before measuring them.
 
 ## Competition-oriented acceptance checklist
 

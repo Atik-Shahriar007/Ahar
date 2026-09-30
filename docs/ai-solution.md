@@ -18,7 +18,9 @@ Output: a meal suggestion and a short reason explaining which constraints shaped
 Feedback: accept, reject, correct a portion, change the budget, or say an ingredient is unavailable. The intended system would use this feedback to improve later ranking.
 Current implemented AI boundary: when the user explicitly asks, the optional local Node service (1) ranks IDs from a small fixed demo swap catalogue using a chosen planning priority and aggregate sample totals, or (2) maps one entered Bangla/English meal sentence to IDs in a fixed demo food list. For text, the prompt includes only the sentence and that public allowlist; shared deterministic validation requires a quoted food-name match and supported unit/amount evidence. The result is editable and is saved only after a separate user confirmation. Neither endpoint receives photos, profile/health fields, account identity, or raw pantry data. The model cannot create a new food ID, calculate nutrition, or apply a swap. The swap catalogue and text food list have not received professional nutrition review, and parser quality has not been tested with users.
 
-The key film moment: show Nabil and Rahim receiving different advice for familiar lunches. Explain the inputs that changed the recommendation. A generic chatbot response beside a calorie counter is not sufficient evidence of AI impact.
+The Guided Plan for Today is separate from those AI endpoints: its one-day routine, sample-cost arithmetic, user-checked pantry deductions, and optional egg-to-dal comparison run locally through fixed rules. **Show Rahim’s workday** uses fictional, unsaved demo stock; no meal or health record is written when the plan is selected. Prices and quantities are illustrative, and the swap is not a nutrition-equivalence claim.
+
+The key film moment: click **Show Rahim’s workday** and show routine, explicitly checked pantry stock, sample budget, and the user-chosen swap changing the estimated shopping total. Explain that this connected loop is deterministic rules, not AI or live market data. If time permits, contrast a different fictional profile. A generic chatbot response beside a calorie counter is not sufficient evidence of AI impact.
 
 4. PROPOSED IMPLEMENTATION AFTER SELECTION
 Perception: a vision model proposes likely dish labels and an uncertainty range. Ask about portions and oil. Never treat a photo as a laboratory measurement.
@@ -36,7 +38,7 @@ Do not monetize by recommending food that pays the highest commission. Do not se
 Obtain explicit consent before storing photos or health-related details; allow deletion. Swap ranking receives only its selected demo context. The separate text endpoint receives the sentence only after the user presses review, plus the fixed public food list; parsed output is not stored until the user confirms. Neither endpoint receives photos or health-profile fields. Pantry entries remain in the browser.
 
 6. WHAT EXISTS TODAY
-Clickable interface, illustrated sample meals, scripted estimate animation, editable illustrative portion values, three personas, personal profile form, budget arithmetic, family/solo modes, recipes, sample habit history, English/Bangla presentation, pantry-aware sample basket, user-selected ingredient swaps, a constrained optional model ranker, and an opt-in fixed-list meal-text mapper with review-before-save. The meal-text mapper does not calculate nutrition or alter the scripted photo flow; none of these demo behaviors is evidence of clinical guidance or validated recognition accuracy.
+Clickable interface, illustrated sample meals, scripted estimate animation, editable illustrative portion values, three personas, personal profile form, budget arithmetic, family/solo modes, recipes, sample habit history, English/Bangla presentation, pantry-aware sample basket, the local Guided Plan for Today loop, user-selected ingredient swaps, a constrained optional model ranker, and an opt-in fixed-list meal-text mapper with review-before-save. The guided plan, meal-text mapper, and swap ranker do not calculate nutrition or alter the scripted photo flow; none of these demo behaviors is evidence of clinical guidance or validated recognition accuracy.
 Uploaded photos are local previews only. The user must explicitly choose the sample result. Text-meal records are separate, browser-local, and store only food IDs/confirmed amounts—not the sentence. No login, real nutrition database, live bazar prices, real voice recognition, or measured health outcomes.
 
 7. FIRST PILOT: A TESTABLE PROPOSAL
@@ -58,7 +60,7 @@ Grameenphone is a potential distribution and pilot-enablement partner for Bangla
 Originality: make local constraints and explainable personal adjustments visible. Do not claim to be the first food-photo app.
 Feasibility: bounded food catalog, user correction, rules for costs and exclusions, professional review.
 Social impact: practical decisions across different budgets and working lives, measured in a proposed pilot.
-Meaningful AI: context and meal-history analysis change the recommendation; validate against a non-AI baseline.
+Meaningful AI: optional model ranking is limited to a fixed sample swap list; test whether it adds value over the deterministic baseline. The daily plan and its arithmetic are rules-based, not AI-generated.
 These match published 2025 criteria. Confirm the current edition's rules before submission.
 
 

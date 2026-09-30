@@ -26,14 +26,14 @@ English captions:
 The photo result is scripted; no image recognition runs.
 Optional text maps to a fixed demo list. Review and confirm; no nutrition is inferred.
 
-00:48–01:10 | SHOW PERSONALIZATION, NOT JUST A CLAIM
-Picture: Nabil's home recommendation; switch to Rahim in My profile; show his home recommendation. Use a clean hard cut between the two.
+00:48–01:10 | SHOW THE CONNECTED DECISION LOOP
+Picture: On Today, click **Show Rahim’s workday** → show the one-day routine and sample budget → show the labelled, unsaved rice/dal demo stock → check the optional **Egg → Masoor dal** swap and the recalculated total. Keep “illustrative sample” visible.
 Bangla VO:
-নাবিলের জন্য পানির একটি নমুনা পরামর্শ, রহিমের জন্য বাজেটের মধ্যে খাবারের বিকল্প—এগুলো কল্পিত প্রোফাইলের স্ক্রিপ্ট করা উদাহরণ। নিয়মভিত্তিক হিসাব বাজেট সামলায়। চাইলে এআই নমুনা তালিকার বিকল্পগুলোকে খরচ, ঘরের মজুতের সম্মিলিত হিসাব বা খাবারের ধরন অনুযায়ী সাজায়; পছন্দটি ব্যবহারকারীই নেন।
+রহিমের কর্মদিবসের নমুনা পরিকল্পনায় রুটিন, ঘরে থাকা উপকরণ আর বাজেট একসঙ্গে দেখা যায়। ঘরে কোন জিনিস এখনো আছে, সেটি ব্যবহারকারী নিশ্চিত করেন। চাইলে দুপুরের ডিমের বদলে মসুর ডালের ধারণা বেছে নিলে নমুনা কেনাকাটার হিসাব বদলায়—এটি পুষ্টিগত সমতার দাবি নয়।
 English captions:
-Scripted examples for fictional profiles—not measured personalization.
-Rules handle the arithmetic; optional AI ranks only swaps from a fixed demo list.
-The user reviews and chooses. No health or nutrition equivalence is claimed.
+One connected demo loop: routine, checked pantry, sample budget and a user-chosen swap.
+The Rahim shortcut uses fictional, unsaved pantry stock; all prices are illustrative.
+Rules handle arithmetic. The swap is not a nutrition or health-equivalence claim.
 
 01:10–01:29 | FROM ADVICE TO ACTION
 Picture: My bazar → switch the Market Pulse between Dhaka Sadar and Kawran Bazar → point to “15 Jul 2026” and the unit → Review this bazar photo → Confirm & save → Food plan. Show matched pantry stock reducing the sample amount to buy. Open **Data evidence & gaps** to show the selected-market WFP row/date/raw unit and an unmatched option; note that the budget is still illustrative. Apply one listed swap, briefly show the optional local-feedback prompt, then cut to Recipes.

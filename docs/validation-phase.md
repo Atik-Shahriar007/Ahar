@@ -10,6 +10,8 @@
 
 **My plate** now also offers opt-in Bangla/English meal-text mapping to a fixed demo food list. The browser sends only the sentence after the user requests review; the server validates IDs against quoted words and verifies any returned amount/unit evidence. Users can correct/remove results or choose foods manually, then explicitly confirm a separate browser-local meal record. The raw sentence is not saved, and this feature does not alter the sample photo result, nutrition, day log, or Food plan. The uncertainty label is uncalibrated; parser quality and Bangla coverage have not been evaluated with users.
 
+**Today** now includes a Guided Plan for Today: choose a busy-workday or home-cooking rhythm, enter an illustrative daily budget, check which saved pantry items are still available, and compare an optional user-selected egg-to-dal swap. The Rahim shortcut uses labelled, fictional rice/dal stock that is not saved. Arithmetic is local rules-based; prices and portions are examples, not current market or nutrition guidance.
+
 The data snapshot was explored from the HDX CSV on 30 September 2026: 34,377 records, 110 markets, 73 commodities, and eight raw units. Its date range includes 1900-08-15; that anomalous-looking date is kept as a review warning in the source audit, not treated as a valid modern market observation. The WFP CSV mixes units such as `KG`, `100 KG`, `L`, and `1 piece`; the demo preserves the specific item's source unit and does not compare unlike units.
 
 The following sources were found for later expansion:
@@ -45,7 +47,7 @@ This is a preparation sheet, not a report of completed interviews. Keep a sessio
 2. “What food was already at home, and how did you check?”
 3. “What changed the plan—price, availability, time, cooking equipment, household preference, or something else?”
 4. “What do you do when an ingredient is unavailable?”
-5. Ask the person to use the sample prototype: make a plan, try one swap, inspect the historical price chart, and explain what each date/unit means.
+5. Ask the person to use the sample prototype: open **Show Rahim’s workday**, explain the routine and budget, decide whether the demo pantry is real or illustrative, try one swap, and describe how its total changed. Then inspect the historical price chart and explain what its date/unit mean.
 6. “Which part was confusing or felt untrustworthy? What would you change?”
 7. “What, if anything, would stop this from fitting how you actually shop or cook?”
 

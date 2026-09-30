@@ -164,8 +164,8 @@ test('meal text request has a same-origin, JSON, and length boundary', async () 
   assert.equal(tooLong.status, 400);
 });
 
-test('only new public scripts are exposed, not server source', async () => {
-  for (const file of ['meal-text-catalog.js', 'meal-text-core.js', 'meal-text.js']) {
+test('only allowlisted public scripts and the sample image are exposed, not server source', async () => {
+  for (const file of ['meal-text-catalog.js', 'meal-text-core.js', 'meal-text.js', 'guided-plan-core.js', 'guided-plan.js']) {
     const response = await fetch(`http://127.0.0.1:${port}/${file}`);
     assert.equal(response.status, 200, `${file} should be public`);
   }

@@ -18,6 +18,10 @@ Open `http://127.0.0.1:5174`. The server binds to localhost. Set `OPENAI_API_KEY
 - Add `&bn=1` to launch the main interface in Bangla.
 - Navigation hashes: `#today`, `#plate`, `#bazar`, `#plan`, `#recipes`, `#progress`, `#profile`.
 
+## Guided Plan for Today
+
+On Today, **Build today’s plan** opens a one-day rules-based flow for a busy workday or cooking at home. Enter a sample daily budget, check only saved pantry items that are still available, and see meal-by-meal illustrative shopping cost. The optional **Egg → Masoor dal** lunch swap recalculates the total immediately. **Show Rahim’s workday** is a one-tap judge demo: it selects the fictional Rahim persona and uses clearly labelled sample rice and dal stock without changing any saved pantry record. The plan stays in the current browser session; it does not call an AI model, use live prices, estimate nutrition, or save a health record.
+
 ## What is new in this phase
 
 **My bazar** now includes a bilingual historical market-pulse preview. It uses a small, dated excerpt from the WFP Price Database distributed via HDX for Dhaka Sadar and Kawran Bazar Dhaka. The page shows the selected market, food, original unit, source flag, observation dates, and small trend lines. A market dropdown lets the demo switch locations. The excerpt is not live, may be stale, and does not feed the illustrative Food plan or shopping budget.
