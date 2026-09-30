@@ -26,6 +26,8 @@ The `scripts/build_demo_market_snapshot.py` script can regenerate the excerpt fr
 
 The Food plan still lets users select from a fixed list of illustrative ingredient swaps, then recalculates sample quantities, pantry coverage, and budget. The optional server-side model can rank only the listed candidates against a chosen goal; the user chooses whether to apply an option. Swaps are not nutrition, allergy, recipe, or health equivalence.
 
+After applying a swap, users may optionally mark it useful or not and select a simple reason. Feedback is saved in this browser under the current fictional demo profile, can be cleared independently from swap choices, and only breaks ties in local rules rankings. It is never included in an AI request and does not change quantities, costs, pantry calculations, or the candidate catalogue.
+
 ## Important limitations
 
 Meal/photo results, nutrition, the swap catalogue, household budgets, and Food plan prices remain illustrative or scripted. The market pulse is a **dated historical excerpt**, not a current market-price feed or a prediction of what a household will pay. There is no live food database, account system, or clinical decision service. Uploaded meal photos are local previews and are not analyzed or uploaded. Confirmed pantry entries and swap selections stay in the current browser. On an explicit ranking request, the optional AI endpoint receives only a selected ingredient ID, chosen planning goal, sample budget, candidate costs after local pantry adjustment, and aggregate pantry-covered value—not raw pantry rows, a name, profile/body measurements, or photos.

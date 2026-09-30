@@ -36,12 +36,13 @@ Rules handle the arithmetic; optional AI ranks only swaps from a fixed demo list
 The user reviews and chooses. No health or nutrition equivalence is claimed.
 
 01:10–01:29 | FROM ADVICE TO ACTION
-Picture: My bazar → switch the Market Pulse between Dhaka Sadar and Kawran Bazar → point to “15 Jul 2026” and the unit → Review this bazar photo → Confirm & save → Food plan. Show matched pantry stock reducing the sample amount to buy, then cut to Recipes.
+Picture: My bazar → switch the Market Pulse between Dhaka Sadar and Kawran Bazar → point to “15 Jul 2026” and the unit → Review this bazar photo → Confirm & save → Food plan. Show matched pantry stock reducing the sample amount to buy, apply one listed swap, then briefly show the optional feedback prompt and its device-local disclosure before cutting to Recipes.
 Bangla VO:
-বাজারের এই অংশে ঢাকার নির্বাচিত বাজারের পুরোনো দামের ধারা দেখা যায়—তারিখ আর এককসহ, আজকের দাম নয়। এরপর বাজারের ছবির নমুনা তালিকা যাচাই করে ঘরের মজুত নিশ্চিত করুন। পরিকল্পনায় যা আছে তা বাদ পড়ে; ডিমের বদলে মসুর ডাল নিলে নমুনা বাজারের হিসাব বদলায়।
+বাজারের এই অংশে ঢাকার নির্বাচিত বাজারের পুরোনো দামের ধারা দেখা যায়—তারিখ আর এককসহ, আজকের দাম নয়। এরপর বাজারের ছবির নমুনা তালিকা যাচাই করে ঘরের মজুত নিশ্চিত করুন। পরিকল্পনায় যা আছে তা বাদ পড়ে; ডিমের বদলে মসুর ডাল নিলে নমুনা বাজারের হিসাব বদলায়। চাইলে মতামত দিন—এটি এই ব্রাউজারেই থাকে, মডেলে যায় না।
 English captions:
 Dated WFP/HDX history—not today's market prices.
 Pantry stock and a user-selected swap change the illustrative basket.
+Optional swap feedback stays on-device; it is not model training data.
 
 01:29–01:47 | HONEST FEASIBILITY AND MEASUREMENT
 Picture: progress screen; small caption “Proposed pilot: 30 adults · 6 weeks”. Do not present sample progress as measured impact.

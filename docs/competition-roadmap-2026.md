@@ -32,7 +32,7 @@ This created a visible, testable journey across three existing parts of AharAI: 
 
 ### Stage 1b — Add sample swaps and a constrained AI ranker (implemented)
 
-Users can choose from a small illustrative swap catalogue and see quantities, pantry coverage, and budget recalculate locally. An optional server-side model ranks only approved option IDs against a user-selected, non-sensitive planning priority (sample cost, aggregate confirmed-stock use, or a curated meal style). Arithmetic remains deterministic; a local fallback always works; nothing is applied without a user click. No profile, photos, or raw pantry list is sent. This is a working prototype feature—not evidence that AI improves outcomes. Evaluate it against the fallback before expanding AI's role.
+Users can choose from a small illustrative swap catalogue and see quantities, pantry coverage, and budget recalculate locally. An optional server-side model ranks only approved option IDs against a user-selected, non-sensitive planning priority (sample cost, aggregate confirmed-stock use, or a curated meal style). Arithmetic remains deterministic; a local fallback always works; nothing is applied without a user click. Optional useful/not-useful feedback and a simple reason are stored per fictional demo profile in the browser; the vote is a final tie-break only for local rules, can be cleared, and is never sent to the model. No profile, photos, or raw pantry list is sent. These are working prototype features—not evidence that AI improves outcomes or that users prefer a suggestion. Evaluate against the fallback and gather real consented feedback before expanding AI's role.
 
 ### Stage 2 — Validate the problem and replace invented assumptions
 

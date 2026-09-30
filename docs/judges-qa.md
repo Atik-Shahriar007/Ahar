@@ -9,6 +9,9 @@ We do not use a model for arithmetic. In this prototype, an optional server-side
 **What information does the model receive?**
 Only the selected catalogue ingredient ID, one planning priority, the sample budget, and candidate costs after pantry adjustment plus aggregate pantry-covered amounts. It receives no name, profile fields, body measurements, raw pantry rows, or photos. The credential stays on the server. The model returns approved IDs only; the user still chooses.
 
+**Does the feedback train or personalize the AI?**
+No. Feedback is optional and stored in this browser under the current fictional demo profile. It only breaks ties in the local rules ranking, is excluded from the model request, and has a separate clear control. We have not collected real-user feedback or measured whether the suggestions are useful.
+
 **Can a photo know the calories in curry?**
 Not precisely. Hidden oil and portion size matter. We show a range, ask for correction and would evaluate against measured dishes. Today's result is scripted, not a recognition benchmark.
 

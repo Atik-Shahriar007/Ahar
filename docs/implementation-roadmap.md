@@ -45,9 +45,9 @@ All basket prices and quantities remain demonstration values. No clinical or nut
 
 **Acceptance:** the page identifies the latest snapshot date, describes the prices as historical, keeps unlike units separate, and states that charts do not change sample plan totals. This demonstrates the intended data experience; it does not establish present-day market prices or user savings.
 
-### Step 4 — Learn from explicit corrections (next after this release)
+### Step 4 — Learn from explicit corrections (implemented)
 
-**Goal:** improve relevance without silently profiling people.
+**Goal:** improve relevance without silently profiling people. Feedback is optional, scoped to the selected fictional demo profile, stored in this browser only, and does not transmit to the model.
 
 1. Ask for optional thumbs-up/down on a swap or ranked result.
 2. Let users choose a simple reason (too expensive, not available, do not like it, other); do not ask for diagnosis, allergy history, weight goals, or sensitive explanations.
@@ -55,7 +55,9 @@ All basket prices and quantities remain demonstration values. No clinical or nut
 4. Use it only to adjust deterministic local ranking first; state that it is device-local and experimental.
 5. If cross-user research is later needed, obtain informed consent, minimize/aggregate data, define a retention period, and compare results to the baseline.
 
-**Acceptance:** clear opt-in, no server transmission in default mode, reset/delete control, and a test proving feedback cannot change budget arithmetic or bypass the approved catalogue.
+**Implementation:** after applying a swap, the user may choose useful/not useful and—only for a negative response—a simple reason. “Clear saved feedback” resets it separately from swaps. The deterministic local ranker uses votes only as a final tie-break after budget feasibility, the chosen planning priority, and cost. AI requests do not include feedback.
+
+**Acceptance evidence:** tests cover per-profile local storage, validation against catalogue IDs, reset isolation, feedback tie behavior, preservation of budget/priority/cost precedence, unchanged plan arithmetic, and exclusion from the outgoing model payload.
 
 ### Step 5 — Ground the catalogue in verified Bangladesh data
 
