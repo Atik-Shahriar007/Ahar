@@ -1,0 +1,50 @@
+[
+  {
+    "id": "budget-lower-cost",
+    "description": "Both choices fit; lower sample total wins the budget priority.",
+    "sourceId": "eggs",
+    "goalId": "budget",
+    "budget": 280,
+    "candidateMetrics": {
+      "masoor-dal": { "total": 220, "pantryCovered": 0 },
+      "rui-fish": { "total": 260, "pantryCovered": 0 }
+    },
+    "expectedRulesOrder": ["masoor-dal", "rui-fish"]
+  },
+  {
+    "id": "pantry-value-when-both-fit",
+    "description": "Both choices fit; higher aggregate confirmed-stock coverage wins the pantry priority.",
+    "sourceId": "eggs",
+    "goalId": "pantry",
+    "budget": 280,
+    "candidateMetrics": {
+      "masoor-dal": { "total": 260, "pantryCovered": 20 },
+      "rui-fish": { "total": 270, "pantryCovered": 85 }
+    },
+    "expectedRulesOrder": ["rui-fish", "masoor-dal"]
+  },
+  {
+    "id": "meal-style-before-cost",
+    "description": "Both fit; one-pot tags outrank a cheaper option without that tag.",
+    "sourceId": "eggs",
+    "goalId": "one-pot",
+    "budget": 280,
+    "candidateMetrics": {
+      "masoor-dal": { "total": 260, "pantryCovered": 0 },
+      "rui-fish": { "total": 220, "pantryCovered": 0 }
+    },
+    "expectedRulesOrder": ["masoor-dal", "rui-fish"]
+  },
+  {
+    "id": "budget-fit-is-hard-preference",
+    "description": "A non-one-pot choice within budget ranks above the one-pot choice that exceeds it.",
+    "sourceId": "eggs",
+    "goalId": "one-pot",
+    "budget": 280,
+    "candidateMetrics": {
+      "masoor-dal": { "total": 300, "pantryCovered": 0 },
+      "rui-fish": { "total": 275, "pantryCovered": 0 }
+    },
+    "expectedRulesOrder": ["rui-fish", "masoor-dal"]
+  }
+]

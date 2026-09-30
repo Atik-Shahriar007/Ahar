@@ -6,13 +6,14 @@ import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
 const { groups: catalog, goals } = require('./swap-catalog.js');
+const rankingCore = require('./ranking-core.js');
 const root = path.dirname(fileURLToPath(import.meta.url));
 // Keep this demo endpoint loopback-only; public deployment requires a separate
 // authenticated, rate-limited service design rather than changing this bind.
 const host = '127.0.0.1';
 const port = Number(process.env.PORT || 5174);
 const model = process.env.AHAR_LLM_MODEL || 'gpt-5-mini';
-const publicFiles = new Set(['index.html', 'app.js', 'pantry.js', 'planner.js', 'swap-catalog.js', 'swap-engine.js', 'style.css', 'bajar.jpeg', 'pic_lunch.png']);
+const publicFiles = new Set(['index.html', 'app.js', 'pantry.js', 'planner.js', 'swap-catalog.js', 'swap-engine.js', 'market-data.js', 'market-pulse.js', 'ranking-core.js', 'style.css', 'bajar.jpeg', 'pic_lunch.png']);
 const mime = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8', '.jpeg': 'image/jpeg', '.jpg': 'image/jpeg',
@@ -25,13 +26,7 @@ function sendJson(res, status, payload) {
 }
 
 function fallbackRank(group, metrics, budget, goalId) {
-  return [...group.options].sort((a, b) => {
-    const aMetric = metrics[a.id];
-    const bMetric = metrics[b.id];
-    const aGoalScore = goalId === 'pantry' ? aMetric.pantryCovered : a.mealTags.includes(goalId) ? 1 : 0;
-    const bGoalScore = goalId === 'pantry' ? bMetric.pantryCovered : b.mealTags.includes(goalId) ? 1 : 0;
-    return Number(bMetric.total <= budget) - Number(aMetric.total <= budget) || bGoalScore - aGoalScore || aMetric.total - bMetric.total || a.id.localeCompare(b.id);
-  }).map((option) => option.id);
+  return rankingCore.rank(group.options, metrics, budget, goalId);
 }
 
 async function readBody(req, limit = 8192) {

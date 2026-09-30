@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-09-30",
+  "sources": [
+    {
+      "id": "fctb-2013",
+      "title": "Food Composition Table for Bangladesh, first edition",
+      "publisher": "Institute of Nutrition and Food Science and Centre for Advanced Research in Sciences, University of Dhaka; supported by Bangladesh government and international partners",
+      "published": "2013-06",
+      "kind": "food-composition",
+      "url": "https://www.fao.org/fileadmin/templates/food_composition/documents/FCT_10_2_14_final_version.pdf",
+      "catalogUrl": "https://www.fao.org/infoods/infoods/tables-and-databases/asia/en/",
+      "license": {
+        "code": null,
+        "status": "not-confirmed",
+        "reuseStatus": "permission-review-required"
+      },
+      "dataStatus": "candidate-not-imported",
+      "notes": [
+        "FAO/INFOODS lists the 2013 PDF and Excel version, but this review did not establish a data-reuse license.",
+        "Do not copy values into the app until reuse terms and the newer database status are confirmed."
+      ]
+    },
+    {
+      "id": "bangladesh-fcdb-2022-paper",
+      "title": "Development of a new food composition table: An updated tool for estimating nutrient intake in Bangladeshi population",
+      "publisher": "Food Chemistry; authors affiliated with University of Dhaka, FAO, and ICMR-National Institute of Nutrition",
+      "published": "2022-06-23",
+      "kind": "food-composition-publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35763921/",
+      "doi": "10.1016/j.foodchem.2022.133544",
+      "license": {
+        "code": null,
+        "status": "article-access-not-equivalent-to-dataset-license",
+        "reuseStatus": "data-file-and-terms-not-verified"
+      },
+      "dataStatus": "publication-described-dataset-not-imported",
+      "notes": [
+        "The paper describes a database of 447 foods and 89 components; primary analytical values were generated for 74 foods, including 54 prioritized key foods, with other values drawn from analytical, estimated, borrowed, or calculated sources.",
+        "Preserve the value-level method and source; the article abstract is not a substitute for access to the underlying data or permission to redistribute it."
+      ]
+    },
+    {
+      "id": "dam-bangladesh-market-prices",
+      "title": "Department of Agricultural Marketing market-price reports",
+      "publisher": "Department of Agricultural Marketing, Government of Bangladesh",
+      "kind": "market-price-service",
+      "url": "https://market.dam.gov.bd/market_daily_price_report?L=E",
+      "guideUrl": "https://market.dam.gov.bd/dam_user_guide/visitor_guide.html",
+      "license": {
+        "code": null,
+        "status": "not-confirmed",
+        "reuseStatus": "permission-review-required"
+      },
+      "dataStatus": "manual-source-candidate-not-imported",
+      "observedFields": ["division", "district", "upazila", "market", "retail-or-wholesale", "date", "commodity", "measurement-unit", "price-range"],
+      "notes": [
+        "The official interface exposes locality, market, price type, and date filters and print/PDF reports.",
+        "A location and collection date must be selected; do not treat an unfiltered national display as a household's local price.",
+        "This review did not find an explicit reuse license or API contract; do not scrape or redistribute automatically until terms are confirmed."
+      ]
+    },
+    {
+      "id": "wfp-hdx-bangladesh-food-prices",
+      "title": "Bangladesh - Food Prices",
+      "publisher": "World Food Programme Price Database, distributed through the Humanitarian Data Exchange",
+      "kind": "historical-market-prices",
+      "url": "https://data.humdata.org/dataset/wfp-food-prices-for-bangladesh",
+      "downloadUrl": "https://data.humdata.org/dataset/c76eabb7-fdb5-43b7-a5c4-09091bb8acde/resource/966ab7ac-56d6-4dac-8eba-dfe815d59a52/download/wfp_food_prices_bgd.csv",
+      "license": {
+        "code": "CC-BY-IGO",
+        "status": "dataset-page-stated",
+        "url": "https://docs.humdata.org/about/data-licenses",
+        "reuseStatus": "permitted-with-attribution"
+      },
+      "dataStatus": "small-historical-excerpt-in-market-pulse-demo-only",
+      "snapshotReviewedOn": "2026-09-30",
+      "observedSnapshot": {
+        "records": 34377,
+        "markets": 110,
+        "commodities": 73,
+        "firstDate": "1900-08-15",
+        "latestDate": "2026-07-15",
+        "unitVariants": 8
+      },
+      "notes": [
+        "The downloaded CSV includes market, admin areas, date, commodity, unit, price type, currency, price, and price flag.",
+        "Observed units are heterogeneous (including KG, 100 KG, L, and 1 piece); preserve source units and never silently normalize them.",
+        "The 1900 date needs investigation before use. The newest row in the reviewed snapshot is 77 days before the review date; a small excerpt is shown only as a historical visual, never as a current quote or planner price.",
+        "Use attribution and keep row-level source/date/unit/market provenance if this candidate is used."
+      ]
+    },
+    {
+      "id": "agripricebd-2026",
+      "title": "AgriPriceBD: A Daily Market Price Dataset of Agricultural Commodities of Bangladesh",
+      "publisher": "Dataset authors affiliated with University of Dhaka and Southeast University; published on Mendeley Data",
+      "published": "2026-03-27",
+      "kind": "derived-historical-market-prices",
+      "url": "https://data.mendeley.com/datasets/bkmxnrn3hn",
+      "doi": "10.17632/bkmxnrn3hn.1",
+      "license": {
+        "code": "CC-BY-4.0",
+        "status": "dataset-page-stated",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "reuseStatus": "permitted-with-attribution"
+      },
+      "dataStatus": "secondary-validation-candidate-not-imported",
+      "notes": [
+        "The dataset page describes five commodities and a five-year daily series with BDT/kg retail and wholesale minimum/maximum prices.",
+        "Its metadata says daily government PDF reports were digitized with an LLM-assisted pipeline and documents four zero-price green-chili records in January 2024 due to portal outages.",
+        "Review the files and compare extracted records with original DAM reports before any AharAI use; this coverage does not replace local validation for AharAI's listed foods."
+      ]
+    }
+  ]
+}

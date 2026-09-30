@@ -1,4 +1,4 @@
-/* AharAI — IUT_b(a)s. All nutrition, prices and model responses are illustrative. No model/API is called. */
+/* AharAI concept app: planning/nutrition values are illustrative; Market Pulse is a dated HDX/WFP snapshot; optional AI ranking is called only on user action. */
 const $=s=>document.querySelector(s);
 const icons={today:'<path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-7h6v7"/>',plate:'<rect x="3" y="6" width="18" height="15" rx="3"/><path d="m8 6 2-3h4l2 3"/><circle cx="12" cy="13" r="4"/>',plan:'<path d="M4 7h16l-2 14H6Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/>',recipes:'<path d="M4 3h12a4 4 0 0 1 4 4v14H8a4 4 0 0 1-4-4Z"/><path d="M4 17a4 4 0 0 1 4-4h12M9 6h6M9 9h6"/>',progress:'<path d="M4 20V4M4 20h17M8 15l4-5 4 2 5-7"/>',profile:'<circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>',arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',leaf:'<path d="M20 3C7 2 2 9 6 16s15 2 14-13Z"/><path d="M4 21 16 8"/>',check:'<path d="m5 12 4 4L19 6"/>',voice:'<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-4 0h8"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>'};
 icons.bazar=icons.plan;

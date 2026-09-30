@@ -1,16 +1,16 @@
 # AharAI · আহারাই
 
-A mobile-first concept prototype for practical food choices shaped by familiar Bangladeshi meals, daily routine, household pantry, and an illustrative food budget.
+A mobile-first concept prototype for practical food choices shaped by familiar Bangladeshi meals, household pantry, and an illustrative food budget. The prototype now also demonstrates how dated local-market observations could appear in a future product.
 
 ## Run locally
 
-No package installation is required. To run the full local prototype and optional AI ranking endpoint, run:
+No package installation is required. To run the full local prototype and optional AI ranking endpoint:
 
 ```bash
 node server.mjs
 ```
 
-Then open `http://127.0.0.1:5174`. The server binds to localhost by default. Set `OPENAI_API_KEY` and `OPENAI_API_BASE` in the **server environment only** to enable optional model ranking; never put a key in frontend code or GitHub. Without these variables, the local rules-based ranking still works. For a static-only preview, run `python3 -m http.server 5174 --bind 127.0.0.1`; the AI button then uses its local fallback.
+Open `http://127.0.0.1:5174`. The server binds to localhost. Set `OPENAI_API_KEY` and `OPENAI_API_BASE` in the **server environment only** to enable optional model ranking; never put a key in frontend code or GitHub. Without these variables, the deterministic local ranking still works. For a static-only preview, run `python3 -m http.server 5174 --bind 127.0.0.1`.
 
 ## Demo shortcuts
 
@@ -18,22 +18,35 @@ Then open `http://127.0.0.1:5174`. The server binds to localhost by default. Set
 - Add `&bn=1` to launch the main interface in Bangla.
 - Navigation hashes: `#today`, `#plate`, `#bazar`, `#plan`, `#recipes`, `#progress`, `#profile`.
 
-## First staged improvement
+## What is new in this phase
 
-The Food plan uses confirmed pantry entries when names and measurement units are clear. It also lets users choose from a small fixed list of illustrative ingredient swaps, then recalculates sample quantities, pantry coverage, and budget. An optional server-side model can rank only the listed candidates against a chosen goal (budget, pantry use, or meal style); the browser applies nothing until the user chooses. A deterministic ranking remains available. Swaps are not nutrition, allergy, or recipe equivalence.
+**My bazar** now includes a bilingual historical market-pulse preview. It uses a small, dated excerpt from the WFP Price Database distributed via HDX for Dhaka Sadar and Kawran Bazar Dhaka. The page shows the selected market, food, original unit, source flag, observation dates, and small trend lines. A market dropdown lets the demo switch locations. The excerpt is not live, may be stale, and does not feed the illustrative Food plan or shopping budget.
 
-The swap arithmetic and fallback ranker are transparent local rules. Only when explicitly requested through `node server.mjs` with model credentials configured does a real model rank approved option IDs. It cannot create prices, ingredients, nutrition advice, or actions.
+The `scripts/build_demo_market_snapshot.py` script can regenerate the excerpt from a downloaded WFP/HDX CSV. The prototype does not fetch prices at runtime. Attribution and the detailed source snapshot notes are in [`data/sources.json`](data/sources.json) and [`docs/validation-phase.md`](docs/validation-phase.md).
+
+The Food plan still lets users select from a fixed list of illustrative ingredient swaps, then recalculates sample quantities, pantry coverage, and budget. The optional server-side model can rank only the listed candidates against a chosen goal; the user chooses whether to apply an option. Swaps are not nutrition, allergy, recipe, or health equivalence.
 
 ## Important limitations
 
-Meal/photo results, prices, meal history, swap catalogue, and nutrition figures are illustrative or scripted; there is no live food database, current market-price feed, account system, or clinical decision service. Uploaded meal photos are local previews and are not analyzed or uploaded. Confirmed pantry entries and swap selections stay in the current browser. On an explicit ranking request, the optional AI endpoint receives only the selected ingredient ID, chosen planning goal, sample budget, candidate costs after local pantry adjustment, and aggregate pantry-covered value—not raw pantry rows. It does not receive a name, profile/body measurements, or photos.
+Meal/photo results, nutrition, the swap catalogue, household budgets, and Food plan prices remain illustrative or scripted. The market pulse is a **dated historical excerpt**, not a current market-price feed or a prediction of what a household will pay. There is no live food database, account system, or clinical decision service. Uploaded meal photos are local previews and are not analyzed or uploaded. Confirmed pantry entries and swap selections stay in the current browser. On an explicit ranking request, the optional AI endpoint receives only a selected ingredient ID, chosen planning goal, sample budget, candidate costs after local pantry adjustment, and aggregate pantry-covered value—not raw pantry rows, a name, profile/body measurements, or photos.
 
-Do not present demo values as measured impact, verified prices, medical guidance, or evidence that an AI model is already operating. The project keeps the AharAI name and its existing Bangladesh-first concept; the attached NutriShield discussion is treated as a feature brainstorm, not a rebrand or a commitment to implement every proposed feature.
+Do not describe the historical sample as today's price, the scripted nutrition as measured, or the small synthetic benchmark as evidence of model accuracy or user impact. The project keeps its AharAI name and Bangladesh-first concept; the attached NutriShield discussion is a feature brainstorm, not a rebrand.
+
+## Checks and prototype tooling
+
+```bash
+python3 -m unittest discover -s tests -p 'test_*.py'
+node --test tests/*.test.mjs
+node scripts/compare_rankings.mjs
+```
+
+The ranker comparison uses synthetic scenarios only. An optional model comparison requires the explicit `--with-ai` flag and a running local server; see [`docs/validation-phase.md`](docs/validation-phase.md).
 
 ## Project notes
 
 - [`docs/competition-roadmap-2026.md`](docs/competition-roadmap-2026.md): evidence-led competition analysis and staged product roadmap.
-- [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md): detailed feature sequence, release gates, privacy and AI safeguards.
-- [`docs/tutorial.md`](docs/tutorial.md): walkthrough and prototype caveats.
+- [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md): detailed feature sequence and safeguards.
+- [`docs/validation-phase.md`](docs/validation-phase.md): source review, interview preparation, implementation gates, and commands.
+- [`data/README.md`](data/README.md): data intake notes.
+- [`docs/tutorial.md`](docs/tutorial.md): prototype walkthrough and caveats.
 - [`docs/ai-solution.md`](docs/ai-solution.md): original concept and proposed architecture.
-- [`docs/sources.md`](docs/sources.md): original sources and claim limitations.

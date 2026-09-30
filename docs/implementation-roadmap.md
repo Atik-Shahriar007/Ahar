@@ -7,6 +7,7 @@ This roadmap turns the current concept prototype into a stronger, testable produ
 - **Foundation:** static mobile-first browser prototype; sample persona, recipe, pantry, and budget flows.
 - **Stage 1 complete:** confirmed pantry quantities reduce the illustrative shopping basket only for clear food-name and compatible-unit matches.
 - **This implementation:** a curated ingredient-swap catalogue, immediate basket recalculation, and an optional server-side AI ranker that can order only approved swap IDs. If the server/model is unavailable, the local rules-based ranking remains available.
+- **Market Pulse showcase:** a bilingual, switchable historical WFP/HDX price visualization for two Dhaka markets; observation dates, raw units, source flags, and attribution are displayed. This static excerpt is not a live feed and is not connected to Food plan totals.
 
 All basket prices and quantities remain demonstration values. No clinical or nutritional equivalence is asserted by a swap.
 
@@ -37,6 +38,12 @@ All basket prices and quantities remain demonstration values. No clinical or nut
 **Acceptance:** a strict ID whitelist is enforced; an absent key, API error, timeout, malformed response, duplicate/unknown ID, or disabled server falls back to a deterministic priority-aware ordering; the user must select an option; nothing is applied automatically; UI discloses what is sent and labels the result AI-assisted or rules-based accurately.
 
 **Local modes:** `node server.mjs` serves the site and optional AI route. `python3 -m http.server` still serves a static demo; AI ranking then degrades to local rules. Set an API key only in the server environment; never put a key in HTML, JavaScript, a committed `.env`, or GitHub Pages.
+
+### Showcase sub-step — Historical market pulse (implemented)
+
+**Work:** include a small, dated historical price excerpt in My bazar; let judges switch between two Dhaka market series and inspect item-level values, source units, source flags, and dates. The displayed excerpt is statically bundled, with attribution, and the prototype does not make a network request for prices.
+
+**Acceptance:** the page identifies the latest snapshot date, describes the prices as historical, keeps unlike units separate, and states that charts do not change sample plan totals. This demonstrates the intended data experience; it does not establish present-day market prices or user savings.
 
 ### Step 4 — Learn from explicit corrections (next after this release)
 
@@ -99,4 +106,4 @@ Before any public API deployment, choose an authorized host and confirm its secr
 
 ## Suggested next milestone after this release
 
-Implement the Step 4 local feedback control only after the team has reviewed the swap flow with a few consenting users. That will test whether the current curated choices are useful before adding model complexity or collecting broader data.
+Use the separate [`validation-phase.md`](validation-phase.md) one-month plan to test whether people understand the historical Market Pulse and what local data they actually need. After that initial review, implement the Step 4 device-local feedback control to test whether the current curated choices are useful before adding model complexity or collecting broader data. The chart remains a historical demo until an appropriate current source and target geography are selected.

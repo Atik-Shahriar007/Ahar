@@ -150,22 +150,7 @@
   }
 
   function rankLocally(group, metrics, goalId) {
-    return [...group.options].sort((a, b) => {
-      const aMetrics = metrics[a.id];
-      const bMetrics = metrics[b.id];
-      const aFits = aMetrics.total <= Number(state.budget);
-      const bFits = bMetrics.total <= Number(state.budget);
-      let aGoalScore = 0;
-      let bGoalScore = 0;
-      if (goalId === 'pantry') {
-        aGoalScore = aMetrics.pantryCovered;
-        bGoalScore = bMetrics.pantryCovered;
-      } else if (['one-pot', 'rice-meal', 'roti-meal'].includes(goalId)) {
-        aGoalScore = a.mealTags.includes(goalId) ? 1 : 0;
-        bGoalScore = b.mealTags.includes(goalId) ? 1 : 0;
-      }
-      return Number(bFits) - Number(aFits) || bGoalScore - aGoalScore || aMetrics.total - bMetrics.total || a.id.localeCompare(b.id);
-    }).map((option) => option.id);
+    return window.AHAR_RANKING_CORE.rank(group.options, metrics, Number(state.budget), goalId);
   }
 
   function showRanking(group, ids, metrics, mode, message = '', goalId = readGoal()) {
