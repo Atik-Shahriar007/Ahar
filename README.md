@@ -24,6 +24,8 @@ Open `http://127.0.0.1:5174`. The server binds to localhost. Set `OPENAI_API_KEY
 
 The `scripts/build_demo_market_snapshot.py` script can regenerate the excerpt from a downloaded WFP/HDX CSV. The prototype does not fetch prices at runtime. Attribution and the detailed source snapshot notes are in [`data/sources.json`](data/sources.json) and [`docs/validation-phase.md`](docs/validation-phase.md).
 
+**Food plan** now includes a collapsed **Data evidence & gaps** disclosure. It uses the current Market Pulse market (default: Dhaka Sadar) and shows the dated WFP/HDX series linked by this demo to masoor dal and flour, preserving each source unit and flag. It lists the other swap ingredients with no matched observation, includes attribution, and explains that these historical values do not change plan prices. The mappings are prototype references, not verified food equivalence; nutrition-composition values remain unimported.
+
 The Food plan still lets users select from a fixed list of illustrative ingredient swaps, then recalculates sample quantities, pantry coverage, and budget. The optional server-side model can rank only the listed candidates against a chosen goal; the user chooses whether to apply an option. Swaps are not nutrition, allergy, recipe, or health equivalence.
 
 After applying a swap, users may optionally mark it useful or not and select a simple reason. Feedback is saved in this browser under the current fictional demo profile, can be cleared independently from swap choices, and only breaks ties in local rules rankings. It is never included in an AI request and does not change quantities, costs, pantry calculations, or the candidate catalogue.

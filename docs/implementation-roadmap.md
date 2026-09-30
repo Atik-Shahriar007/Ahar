@@ -59,13 +59,17 @@ All basket prices and quantities remain demonstration values. No clinical or nut
 
 **Acceptance evidence:** tests cover per-profile local storage, validation against catalogue IDs, reset isolation, feedback tie behavior, preservation of budget/priority/cost precedence, unchanged plan arithmetic, and exclusion from the outgoing model payload.
 
-### Step 5 — Ground the catalogue in verified Bangladesh data
+### Step 5 — Ground the catalogue in verified Bangladesh data (partially implemented)
 
 1. Identify nutrition/ingredient datasets that are lawful to use and suitable for Bangladesh foods; record source, units, coverage, and date.
 2. Find a reliable, dated, location-specific price source. Do not infer current prices from the supplied bazar image or one household purchase.
 3. Get qualified nutrition review before making nutrient comparisons or health-oriented claims.
 4. Keep price/nutrient arithmetic deterministic and source-linked. Show missing values and uncertainty instead of filling gaps with a language model.
 5. Re-run swap tests against real dataset edge cases and document where the catalogue does not apply.
+
+**Prototype increment implemented:** Food plan has a collapsed **Data evidence & gaps** panel tied to the current Market Pulse market (default: Dhaka Sadar). It displays dated WFP/HDX observations and the original unit/source flag for two explicit demo links (`masoor-dal` → `Lentils (masur)` and `flour` → `Wheat flour`), lists unmatched catalogue options, and links to the attributed dataset. The panel states that the links are unverified, the records are historical, and no sample price or nutrition calculation uses them.
+
+**Still open:** confirm food-composition data access/reuse terms, obtain qualified nutrition review, select a fit-for-purpose current local price source, validate mapping/unit edge cases against primary records, and collect user comprehension evidence. Step 5 is not complete.
 
 **Gate:** no nutrition-equivalence, calorie, disease, or affordability claims until evidence and review support them.
 

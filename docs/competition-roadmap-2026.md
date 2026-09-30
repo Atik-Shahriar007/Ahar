@@ -36,7 +36,7 @@ Users can choose from a small illustrative swap catalogue and see quantities, pa
 
 ### Stage 2 — Validate the problem and replace invented assumptions
 
-Before claiming that users need this, interview a small, diverse group of consenting adults across student, physically demanding work, and household-planning contexts. Ask about actual meal decisions, budget trade-offs, pantry practices, Bangla usability, and why a suggested change would be rejected. Record what was said without inventing participants or results. The new static Market Pulse makes the future local-data experience visible, but does not complete this validation stage: the team still needs to select a target area, find data appropriate to it, and review freshness and units. Do not treat the historical chart or illustrative plan prices as survey, current-price, or affordability evidence.
+Before claiming that users need this, interview a small, diverse group of consenting adults across student, physically demanding work, and household-planning contexts. Ask about actual meal decisions, budget trade-offs, pantry practices, Bangla usability, and why a suggested change would be rejected. Record what was said without inventing participants or results. The static Market Pulse and Food plan provenance drawer make a future local-data experience visible, but do not complete this validation stage: the team still needs to select a target area, find data appropriate to it, and review freshness and units. Do not treat historical records, the demo ingredient links, or illustrative plan prices as survey, current-price, nutrition-equivalence, or affordability evidence.
 
 ### Stage 3 — Evaluate bounded AI and expand only where it earns its place
 

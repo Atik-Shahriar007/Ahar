@@ -36,12 +36,13 @@ Rules handle the arithmetic; optional AI ranks only swaps from a fixed demo list
 The user reviews and chooses. No health or nutrition equivalence is claimed.
 
 01:10–01:29 | FROM ADVICE TO ACTION
-Picture: My bazar → switch the Market Pulse between Dhaka Sadar and Kawran Bazar → point to “15 Jul 2026” and the unit → Review this bazar photo → Confirm & save → Food plan. Show matched pantry stock reducing the sample amount to buy, apply one listed swap, then briefly show the optional feedback prompt and its device-local disclosure before cutting to Recipes.
+Picture: My bazar → switch the Market Pulse between Dhaka Sadar and Kawran Bazar → point to “15 Jul 2026” and the unit → Review this bazar photo → Confirm & save → Food plan. Show matched pantry stock reducing the sample amount to buy. Open **Data evidence & gaps** to show the selected-market WFP row/date/raw unit and an unmatched option; note that the budget is still illustrative. Apply one listed swap, briefly show the optional local-feedback prompt, then cut to Recipes.
 Bangla VO:
-বাজারের এই অংশে ঢাকার নির্বাচিত বাজারের পুরোনো দামের ধারা দেখা যায়—তারিখ আর এককসহ, আজকের দাম নয়। এরপর বাজারের ছবির নমুনা তালিকা যাচাই করে ঘরের মজুত নিশ্চিত করুন। পরিকল্পনায় যা আছে তা বাদ পড়ে; ডিমের বদলে মসুর ডাল নিলে নমুনা বাজারের হিসাব বদলায়। চাইলে মতামত দিন—এটি এই ব্রাউজারেই থাকে, মডেলে যায় না।
+বাজারের এই অংশে ঢাকার নির্বাচিত বাজারের পুরোনো দামের ধারা দেখা যায়—তারিখ আর এককসহ, আজকের দাম নয়। পরিকল্পনায় তথ্যসূত্রের তারিখ, কাঁচা একক আর কোন তথ্য নেই তা দেখা যায়; এটি নমুনা বাজেট বদলায় না। বাজারের ছবির তালিকা যাচাই করে ঘরের মজুত নিশ্চিত করুন। ডিমের বদলে মসুর ডাল নিলে নমুনা বাজারের হিসাব বদলায়। চাইলে মতামত দিন—এটি এই ব্রাউজারেই থাকে, মডেলে যায় না।
 English captions:
 Dated WFP/HDX history—not today's market prices.
 Pantry stock and a user-selected swap change the illustrative basket.
+The source drawer preserves historical dates and units; it does not set that budget.
 Optional swap feedback stays on-device; it is not model training data.
 
 01:29–01:47 | HONEST FEASIBILITY AND MEASUREMENT

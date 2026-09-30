@@ -73,7 +73,7 @@
         "url": "https://docs.humdata.org/about/data-licenses",
         "reuseStatus": "permitted-with-attribution"
       },
-      "dataStatus": "small-historical-excerpt-in-market-pulse-demo-only",
+      "dataStatus": "small-historical-excerpt-in-market-pulse-and-food-plan-provenance-only",
       "snapshotReviewedOn": "2026-09-30",
       "observedSnapshot": {
         "records": 34377,
@@ -86,7 +86,7 @@
       "notes": [
         "The downloaded CSV includes market, admin areas, date, commodity, unit, price type, currency, price, and price flag.",
         "Observed units are heterogeneous (including KG, 100 KG, L, and 1 piece); preserve source units and never silently normalize them.",
-        "The 1900 date needs investigation before use. The newest row in the reviewed snapshot is 77 days before the review date; a small excerpt is shown only as a historical visual, never as a current quote or planner price.",
+        "The 1900 date needs investigation before use. The newest row in the reviewed snapshot is 77 days before the review date; a small excerpt is shown only as historical context in Market Pulse and the Food plan provenance panel, never as a current quote or planner arithmetic input.",
         "Use attribution and keep row-level source/date/unit/market provenance if this candidate is used."
       ]
     },

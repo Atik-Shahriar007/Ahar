@@ -1,6 +1,8 @@
 # Data intake and prototype snapshot
 
-The prototype includes one **small historical WFP/HDX price excerpt** in `market-data.js`, used only by the My bazar trend preview. Its displayed dates, market, original unit, and source are kept visible. It is not a live price feed, does not change the Food plan's illustrative prices, and should not be called today's price.
+The prototype includes one **small historical WFP/HDX price excerpt** in `market-data.js`, used in the My bazar trend preview and as context in the Food plan's collapsed data-provenance panel. The panel follows the current Market Pulse market and defaults to Dhaka Sadar. Its displayed dates, market, original unit, source flags, and attribution are kept visible. It is not a live price feed, does not change the Food plan's illustrative prices, and should not be called today's price.
+
+The Food plan panel uses two clearly labelled demo mappings (`masoor-dal` → `Lentils (masur)` and `flour` → `Wheat flour`). It reports missing records for other options rather than inferring values; the mapping is not a professional equivalence review. It never converts the source unit or replaces the separate illustrative plan cost. Nutrition-composition data remain unimported because the underlying data file and applicable reuse terms have not been confirmed.
 
 `sources.json` records the source candidates reviewed and the reuse/quality status found on 30 September 2026. The 2013/2022 food-composition sources and DAM reports are not imported into nutrition or budget calculations.
 

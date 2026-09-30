@@ -6,6 +6,8 @@
 
 **My bazar** includes a historical market-pulse preview with a market selector, four food series, small trendlines, per-observation dates, source flags, and the source attribution. It uses a tiny static subset from the WFP Price Database via HDX for Dhaka Sadar and Kawran Bazar Dhaka. It does not fetch data at runtime, forecast prices, or alter the illustrative shopping plan. The newest row in the reviewed CSV is dated **15 July 2026**, so the UI correctly calls it historical data rather than today's price. The separate Food plan still uses explicitly illustrative prices.
 
+**Food plan** now has a collapsed source-and-gap panel that follows the current Market Pulse market (default: Dhaka Sadar). It shows two explicit demo links—to WFP/HDX `Lentils (masur)` and `Wheat flour`—with the latest row date, raw unit, source flag, and attribution. It also names the swap options without a matched record. The mapping is not a food-equivalence review, and neither the historical values nor the snapshot changes sample plan arithmetic. No nutrient values are loaded because the Bangladesh food-composition files and reuse terms are not confirmed.
+
 The data snapshot was explored from the HDX CSV on 30 September 2026: 34,377 records, 110 markets, 73 commodities, and eight raw units. Its date range includes 1900-08-15; that anomalous-looking date is kept as a review warning in the source audit, not treated as a valid modern market observation. The WFP CSV mixes units such as `KG`, `100 KG`, `L`, and `1 piece`; the demo preserves the specific item's source unit and does not compare unlike units.
 
 The following sources were found for later expansion:
