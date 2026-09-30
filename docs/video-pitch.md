@@ -29,19 +29,19 @@ Then comes one practical change.
 00:48–01:10 | SHOW PERSONALIZATION, NOT JUST A CLAIM
 Picture: Nabil's home recommendation; switch to Rahim in My profile; show his home recommendation. Use a clean hard cut between the two.
 Bangla VO:
-নাবিলের সাম্প্রতিক খাবারে বারবার কোমল পানীয় আছে। তার জন্য আজ পানির পরামর্শ। রহিমের দিন কাটে শারীরিক পরিশ্রমে। তার খাবার কমানো নয়—বাজেটের মধ্যে পেটভরা খাবারের বিকল্প। একই প্ল্যাটফর্ম, আলাদা প্রয়োজন। এআইয়ের কাজ এই প্রেক্ষাপট আর অভ্যাস বিশ্লেষণ করা।
+নাবিলের সাম্প্রতিক খাবারে বারবার কোমল পানীয় আছে। তার জন্য আজ পানির পরামর্শ। রহিমের দিন কাটে শারীরিক পরিশ্রমে। তার খাবার কমানো নয়—বাজেটের মধ্যে পেটভরা খাবারের বিকল্প। একই প্ল্যাটফর্ম, আলাদা প্রয়োজন। এই নমুনায় নিয়মভিত্তিক পরামর্শ দেখি; যাচাইয়ের পরেই এআই যোগ হবে।
 English captions:
 For Nabil: change a repeated drink habit.
 For Rahim: preserve a filling lunch within his budget.
-AI connects food history with individual context.
+The prototype shows contextual rules; AI comes after validation.
 
 01:10–01:29 | FROM ADVICE TO ACTION
-Picture: My bazar → Review this bazar photo → Use demo quantities & prices → Confirm & save → Recipes. Briefly cut to Food plan / family toggle if time allows.
+Picture: My bazar → Review this bazar photo → Use demo quantities & prices → Confirm & save → Food plan. Show matched pantry items reducing the sample amount to buy, then cut to Recipes.
 Bangla VO:
-বাজারের ছবি থেকে জিনিসের তালিকা। পরিমাণ আর দাম ঠিক করে রাখলে, ঘরে কী আছে মনে থাকবে। সেই উপকরণে রেসিপি, বাজেট অনুযায়ী পরিকল্পনা। নিজের জন্য, চাইলে পরিবারের জন্যও।
+বাজারের ছবি থেকে জিনিসের তালিকা। পরিমাণ আর দাম ঠিক করে রাখলে, ঘরে কী আছে মনে থাকবে। পরিকল্পনায় ঘরের চাল-ডাল বাদ দিয়ে নমুনা তালিকার বাকি কেনাকাটা দেখায়। সেই উপকরণে রেসিপি—নিজের জন্য, চাইলে পরিবারের জন্যও। দামগুলো নমুনা।
 English captions:
 A bazar photo becomes a reviewed pantry record.
-Your ingredients shape the next meal suggestion.
+Confirmed stock reduces the sample shopping list—not your meal log.
 
 01:29–01:47 | HONEST FEASIBILITY AND MEASUREMENT
 Picture: progress screen; small caption “Proposed pilot: 30 adults · 6 weeks”. Do not present sample progress as measured impact.
