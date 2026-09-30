@@ -17,6 +17,7 @@ Open `http://127.0.0.1:5174`. The server binds to localhost. Set `OPENAI_API_KEY
 - `?demo=nabil`, `?demo=rahim`, or `?demo=mariam` selects a fictional persona.
 - Add `&bn=1` to launch the main interface in Bangla.
 - Navigation hashes: `#today`, `#plate`, `#bazar`, `#plan`, `#recipes`, `#progress`, `#profile`.
+- After starting the local server, open `http://127.0.0.1:5174/?demo=rahim#today` for the Guided Plan demo; then select **Show Rahim’s workday**. This is a durable local shortcut, not a hosted preview link.
 
 ## Guided Plan for Today
 
